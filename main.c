@@ -9,7 +9,7 @@ enum NUM_ROOTS {
     INF_ROOTS = -1
 };
 
-struct coeff{
+struct coeff {
     double a;
     double b;
     double c;
@@ -48,22 +48,31 @@ int SolveQuadr(struct coeff *pointer, double *px1, double *px2) {
     assert(px1 != px2);
     
     if (a != 0) {
+        
         double d = b * b - 4 * a * c;
+        
         if(d > 0) {
+            
             double sqrt_d = sqrt(d);
+            
             *px1 = (sqrt_d - b) / (2 * a);
             *px2 = -(sqrt_d + b)/(2 * a);
+            
             return TWO_ROOTS;
         }
         if(d == 0) {
+            
             *px1 = -b / (2 * a);
+            
             return ONE_ROOT;
         }
         return NO_ROOTS;
     }
     
     if(b != 0) {
+        
         *px1 = -c / b;
+        
         return ONE_ROOT;
     }
     
@@ -77,6 +86,7 @@ int SolveQuadr(struct coeff *pointer, double *px1, double *px2) {
 void Bufer_Clean(void){
     
     char a = 0;
+    
     do {
         a = getchar();
     }
@@ -97,6 +107,7 @@ void Interface(struct coeff *pointer) {
 }
 
 int Show_Results(int nRoots, double x1, double x2){
+    
     switch(nRoots) {
         case NO_ROOTS: printf("No roots! \n");
                 break;
@@ -109,5 +120,6 @@ int Show_Results(int nRoots, double x1, double x2){
         default: printf("ERROR nRoots = %d \n", nRoots);
                  return 1;
     }
+    
     return 0;
 }
