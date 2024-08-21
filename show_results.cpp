@@ -16,7 +16,6 @@ int ShowResults(enum NUM_ROOTS nRoots, const double x1, const double x2) {
             printf("Any number \n");
             break;
         default:
-
             assert(0 && "ERROR nRoots");
             return 1;
     }

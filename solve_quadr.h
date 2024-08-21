@@ -8,6 +8,6 @@
 #include "get_data.h"
 #include "compare_double.h"
 
-int SolveQuadr(const struct coeff *pointer, const double *px1, const double *px2);
+enum NUM_ROOTS SolveQuadr(const struct Coeff *quadr_coeff, double *x1, double *x2);
 
 #endif /* SOLVE_QUADR_H */

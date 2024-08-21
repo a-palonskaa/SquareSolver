@@ -1,6 +1,6 @@
 #include "get_data.h"
 
-int GetData(struct coeff *pointer) {
+int GetData(struct Coeff *pointer) { // TODO: переименовать pointer
 
     int flag = 0;
 
@@ -9,12 +9,15 @@ int GetData(struct coeff *pointer) {
 
         flag = scanf("%lg %lg %lg", &(pointer->a), &(pointer->b) , &(pointer->c));
 
-        if(flag == EOF)
-        {
+        if (flag == EOF) {
             return INPUT_ERROR;
         }
 
-        if (BuferClean() == 0) return INPUT_ERROR;
-    } while(flag != 3);
+        if (BufferClean() == 0) {
+            return INPUT_ERROR;
+        }
+
+    } while (flag != 3);
+
     return 1;
 }

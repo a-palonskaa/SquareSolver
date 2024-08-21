@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 #include "buffer_clean.h"
-#include "indetify.h"
+#include "define_consts.h"
 
-int GetData(struct coeff *pointer);
+int GetData(struct Coeff *pointer);
 
 #endif /* GET_DATA_H */

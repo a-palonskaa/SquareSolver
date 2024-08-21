@@ -1,5 +1,8 @@
 #include "compare_double.h"
-//const gthtvtyysv rjnjhst yt ljklys vtyznmcz
+
+#include <string.h>
+#include <math.h>
+
 int IsInf(const double a) {
     return (a == INFINITY || a == -INFINITY);
 }
