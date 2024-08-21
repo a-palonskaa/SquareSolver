@@ -86,3 +86,5 @@ enum NUM_ROOTS SolveQuadr(const struct Coeff *quadr_coeff, double *x1, double *x
 
 // TODO: проверка сортировка корней, частные случаи, проверка Nan,
 // TODO: gjvtyznm vtcnfbv kjubre (cyfxfkf kbytqyjt)
+
+//make файлы

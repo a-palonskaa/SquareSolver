@@ -3,11 +3,13 @@
 
 #include <stdio.h>
 
- // const int INPUT_ERROR = 0
 
-enum errors { // TODO: поменять на большие буквы
+enum ERRORS {
     INPUT_ERROR        = 0,
-    ROOTS_NUMBER_ERROR = 1
+    ROOTS_NUMBER_ERROR = 1,
+    END_OF_FILE = 0,
+    SYMBOLS_INPUT_ERROR = 1,
+    NO_ERRORS = 2
  };
 
 enum NUM_ROOTS {

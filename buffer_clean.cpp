@@ -3,11 +3,14 @@
 int BufferClean() {
 
     int a = 0;
+    int symbols = 0;
 
     while ((a = getchar()) != EOF && a != '\n') {
-        ;
+        if (!isspace(a)) {
+        symbols++;
+        }
     }
-
-    return (a != EOF);
+    if (a == EOF) return END_OF_FILE;
+    if (symbols != 0) return SYMBOLS_INPUT_ERROR;
+    else return NO_ERRORS;
 }
-// TODO: пропускать если пробелы isspace(), если после еще есть символы- ошибка, eof детектить
