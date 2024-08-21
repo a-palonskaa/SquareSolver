@@ -9,5 +9,6 @@
 #include "compare_double.h"
 
 enum NUM_ROOTS SolveQuadr(const struct Coeff *quadr_coeff, double *x1, double *x2);
+enum NUM_ROOTS LinearEquation(const struct Coeff *quadr_coeff, double *x);
 
 #endif /* SOLVE_QUADR_H */
