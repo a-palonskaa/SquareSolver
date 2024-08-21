@@ -20,7 +20,7 @@ int main() {
     int status = GetData(&quadr);
     if (status == INPUT_ERROR) {
         printf("INPUT ERROR");
-        return -1;
+        return EXIT_FAILURE;
     }
 
     double x1 = 0, x2 = 0;
@@ -28,4 +28,6 @@ int main() {
     enum NUM_ROOTS nRoots = SolveQuadr(&quadr, &x1, &x2);
 
     ShowResults(nRoots, x1, x2);
+
+    return EXIT_SUCCESS;
 }

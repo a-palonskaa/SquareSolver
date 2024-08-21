@@ -4,13 +4,17 @@ bool RunTest(int testnumber, struct Coeff *quadr_coeff, double x1_expected, doub
 
     double x1 = 0, x2 = 0;
     enum NUM_ROOTS nRoots = SolveQuadr(quadr_coeff, &x1, &x2);
-// сначала вывести об ошибке кол-ва корней если есть
 
     if (!(nRoots == nRoots_expected)) {
-        printf("Error number of root nRoots = %d, expected nRoots = %d \n", nRoots, nRoots_expected);
+        printf("Error Test No%d a = %lg, b = %lg, c = %lg \n"
+               "number of root nRoots = %d, expected nRoots = %d \n",
+               testnumber,
+               quadr_coeff->a, quadr_coeff->b, quadr_coeff->c,
+               nRoots, nRoots_expected);
         return 1;
     }
     else if (!(IsEqual(x1, x1_expected) && IsEqual(x2, x2_expected))) {
+        printf("%d \n \n", IsEqual(x2, x2_expected));
         printf("Error Test No%d, a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg\n"
                "Expected x1 = %lg, x2 = %lg.\n",
                testnumber, quadr_coeff->a, quadr_coeff->b, quadr_coeff->c, x1, x2,
@@ -40,7 +44,7 @@ bool RunAllTests() {
    };
     size_t length = sizeof(tests) / sizeof(tests[0]);
     while (i < length) {
-        if (RunTest(i+1, &(tests[i].coefficients), tests[i].x1, tests[i].x2, tests[i].nRoots)) return 0;
+        if (RunTest((int)i+1, &(tests[i].coefficients), tests[i].x1, tests[i].x2, tests[i].nRoots)) return 0;
         i++;
     }
 

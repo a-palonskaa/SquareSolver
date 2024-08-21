@@ -22,6 +22,12 @@ int IsNull(const double num) {
 }
 
 int IsEqual(const double a, const double b) {
+    if (IsNan(a) && IsNan(b)) {
+    return 1;
+    }
+    if (IsInf(a) && IsInf(b)) {
+    return 1;
+    }
     return IsNull(a - b);
 }
 
