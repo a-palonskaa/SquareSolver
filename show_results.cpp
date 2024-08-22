@@ -1,8 +1,8 @@
 #include "show_results.h"
 
-int ShowResults(enum NUM_ROOTS nRoots, const double x1, const double x2) {
+int ShowResults(enum NUM_ROOTS nroots, const double x1, const double x2) {
 
-    switch (nRoots) {
+    switch (nroots) {
         case NO_ROOTS:
             printf("No roots! \n");
             break;
@@ -15,8 +15,11 @@ int ShowResults(enum NUM_ROOTS nRoots, const double x1, const double x2) {
         case INF_ROOTS:
             printf("Any number \n");
             break;
+        case NON_VALID_INPUT:
+            printf("Non-valid input  \n");
+            break;
         default:
-            assert(0 && "ERROR nRoots");
+            assert(0 && "ERROR nroots");
             return 1;
     }
 

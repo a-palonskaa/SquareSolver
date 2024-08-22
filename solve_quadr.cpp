@@ -2,13 +2,15 @@
 
 static void AnswerNorm(double *x1, double *x2);
 
-enum NUM_ROOTS SolveQuadr(const struct Coeff *quadr_coeff, double *x1, double *x2) {
+enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, double *x2) { //константа для ошибки в NROOTS и разделить коэффициенты
 
-    double a = quadr_coeff->a, b = quadr_coeff->b, c = quadr_coeff->c;
-
-    assert(IsFinite(a));
-    assert(IsFinite(b));
-    assert(IsFinite(c));
+    if (IsFinite(a) == 0 ||
+        IsFinite(b) == 0 ||
+        IsFinite(c) == 0 ) {
+        *x1 = NAN;
+        *x2 = NAN;
+        return NON_VALID_INPUT;
+    }
 
     assert(x1 != NULL);
     assert(x2 != NULL);
@@ -16,7 +18,7 @@ enum NUM_ROOTS SolveQuadr(const struct Coeff *quadr_coeff, double *x1, double *x
 
     if (IsNull(a)) {
         *x2 = NAN;
-        return LinearEquation(quadr_coeff, x1);
+        return LinearEquation(b, c, x1);
     }
 
     double d = b * b - 4 * a * c;
@@ -73,13 +75,9 @@ enum NUM_ROOTS SolveQuadr(const struct Coeff *quadr_coeff, double *x1, double *x
     return NO_ROOTS;
 }
 
-enum NUM_ROOTS LinearEquation(const struct Coeff *quadr_coeff, double *x) {
+enum NUM_ROOTS LinearEquation(double b, double c, double *x) {
 
-    assert(quadr_coeff != NULL);
-    assert(IsNull(quadr_coeff->a));
     assert(x != NULL);
-
-    double b = quadr_coeff->b, c = quadr_coeff->c;
 
     if (IsNull(b)) {
 

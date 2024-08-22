@@ -4,7 +4,9 @@
 #include <math.h>
 
 int IsInf(const double a) {
-    return (a == INFINITY || a == -INFINITY);
+    static const double inf1 = INFINITY, inf2 = -INFINITY;
+    return (memcmp(&a, &inf1, sizeof(a)) == 0 ||
+            memcmp(&a, &inf2, sizeof(a)) == 0);
 }
 
 int IsNan(const double a) {

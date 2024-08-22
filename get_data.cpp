@@ -1,9 +1,9 @@
 #include "get_data.h"
 
-int GetData(struct Coeff *quadr_coeff) {
+int GetData(coefficients_t *quadr_coeff) {
 
     int flag  = 0;
-    int bufer = 0;
+    int buffer = 0;
 
     do {
         printf("Enter a, b, c \n");
@@ -14,11 +14,11 @@ int GetData(struct Coeff *quadr_coeff) {
             return INPUT_ERROR;
         }
 
-        if ((bufer = BufferClean()) == END_OF_FILE) {
+        if ((buffer = BufferClean()) == END_OF_FILE) {
             return INPUT_ERROR;
         }
 
-    } while (flag != 3 || bufer == SYMBOLS_INPUT_ERROR);
+    } while (flag != 3 || buffer == SYMBOLS_INPUT_ERROR);
 
     return NO_INPUT_ERRORS;
 }

@@ -1,6 +1,6 @@
 /**
  * @file test_solve_quadr.h
- * @brief Tests the function SolveQuadr that solve quadratic equations
+ * @brief Tests the function QuadraticEquation that solve quadratic equations
  */
 #ifndef TEST_SOLVE_QUADR_H
 #define TEST_SOLVE_QUADR_H
@@ -10,39 +10,52 @@
 
 #include "define_consts.h"
 #include "solve_quadr.h"
-/** @struct testing_data
-  * @brief Structure for coefficients of quadraric equation
-  * @var testing_data::coefficients
-  * Member 'coefficients' is structure type of Coeff with the coeffcients of quadratic equation
-  * @var testing_data::x1
-  * Member 'x1' is the smallest root
-  * @var testing_data::x2
-  * Member 'x2' is the largest root
-  * @var testing_data::nRoots
-  * Member 'nRoots' is the number of roots type of NUM_ROOTS
-  */
-struct testing_data {
-    struct Coeff coefficients;
+#include "test_library.h"
+#include "compare_double.h"
+#include "print_colors.h"
+
+/** @struct Roots_expected
+ * @brief Structure for the expected roots
+ *@var Roots_expected::x1
+ * Member 'x1' is the smallest expected root
+ * @var Roots_expected::x2
+ * Member 'x2' is the greatest expected root
+ * @var Roots_expected::x2
+ * Member 'x2' is the greatest expected root
+ */
+typedef struct {
     double x1;
     double x2;
-    enum NUM_ROOTS nRoots;
-};
+    enum NUM_ROOTS nroots;
+} roots_t;
+
+/** @testing_t_data
+  * @brief Structure for testing data (coefficients of quadraric equation and expected roots)
+  * @var testing_data::coefficients
+  * Member 'coefficients' is structure type of coefficients_t with the coeffcients of quadratic equation
+  * @var testing_data::roots_expected
+  * Member 'roots_expected' is structure type of roots_t with the roots and their amount
+  */
+typedef struct {
+    coefficients_t coefficients;
+    roots_t roots_expected;
+} testing_data_t;
+/** @store_data_t
+  * @brief Structure for the testing data and data obtained by the programs' algorithm
+  * @var store_data_t::testing_data
+  * Member 'coefficients' is structure type of testing_data_t with the testing data
+  * @var store_data_t::roots_returned
+  * Member 'roots_returned' is structure type of roots_t with the obtained roots and their amount by the quadratic equation solver
+  */
+typedef struct {
+    testing_data_t testing_data;
+    roots_t roots_returned;
+} store_data_t;
 /**
-* @brief Run all tests of SolveQuadr function
+* @brief Run all tests of QuadraticEquation function
 * @return true if all tests were successful
 *         false if there were mistakes
 */
 bool RunAllTests();
-/**
-* @brief Run one test and print if there were mistakes and what mistake was detected
-* @param[in] testnumber The number of test
-* @param[in] quadr_coeff Pointer to the structure with equation coefficients
-* @param[in] x1_expected Expected value of the smallest root
-* @param[in] x2_expected Expected value of the greates root
-* @param[in] nRoots_expected Expected value of the number of roots
-* @return true if all tests were successful
-*         false if there were mistakes
-*/
-bool RunTest(int testnumber, struct Coeff *quadr_coeff, double x1_expected, double x2_expected, enum NUM_ROOTS nRoots_expected);
 
 #endif /* TEST_SOLVE_QUADR_H */

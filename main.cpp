@@ -12,7 +12,7 @@ int main() {
 
     printf("quadratic equation solver \n");
 
-    struct Coeff quadr = {};
+    coefficients_t quadr = {};
 
     int statys = RunAllTests();
     (void) statys;
@@ -25,9 +25,9 @@ int main() {
 
     double x1 = 0, x2 = 0;
 
-    enum NUM_ROOTS nRoots = SolveQuadr(&quadr, &x1, &x2);
+    enum NUM_ROOTS nroots = QuadraticEquation(quadr.a, quadr.b, quadr.c, &x1, &x2);
 
-    ShowResults(nRoots, x1, x2);
+    ShowResults(nroots, x1, x2);
 
     return EXIT_SUCCESS;
 }
