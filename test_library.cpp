@@ -2,10 +2,10 @@
 
 // const char* name
 void TestRun(testing_t *test, int test_number, void *data) {
-    test->status = DEFAULT;
+    test->status = STATE::DEFAULT;
     test->test_number = test_number;
-    bool flag = test->run(test, data);
-    (void) flag;
+    test->run(test, data);
+    test->print_message(test, data);
 }
 
 // Список вспомогательных функций:
@@ -15,5 +15,7 @@ void TestRun(testing_t *test, int test_number, void *data) {
 // Log (сообщение в файл через ..., vargs)
 //покрасить вывод
 
-
-
+/*
+Log(test, "message %d", 5);
+Log(test, "message");
+ */

@@ -1,53 +1,53 @@
 #include "test_solve_quadr.h"
 
 static void PrintMessage(testing_t* test, void *storage);
-static bool Run(testing_t *test, void* storage);
+static void Run(testing_t *test, void* storage);
+static void Log(testing_t *test, enum LOG_LEVEL status, const char *fmt, ...);
+void TimePrint(FILE *out);
+void ChangeStr(const char *s, char *p);
+const char* LogPrint(enum LOG_LEVEL level);
 
 void PrintMessage(testing_t* test, void *storage) {
 
     store_data_t* data = (store_data_t*)(storage);
+    coefficients_t* coeff = &data->testing_data.coefficients;
+    roots_t* roots = &data->roots_returned;
 
-        if (test->status == DEFAULT) {
-            fprintf(test->output, "Test No. %d successful \n", test->test_number + 1);
-        }
-        else if (!(data->roots_returned.nroots == data->testing_data.roots_expected.nroots)){
-            fprintf(test->output, "Error Test No%d a = %lg, b = %lg, c = %lg \n"
-                                  "number of root nroots = %d, expected nroots = %d \n",
-                                  test->test_number + 1,
-                                  data->testing_data.coefficients.a, data->testing_data.coefficients.b, data->testing_data.coefficients.c,
-                                  data->roots_returned.nroots, data->testing_data.roots_expected.nroots);
-        }
-        else {
-            fprintf(test->output, "Error Test No%d, a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg\n"
-                                  "Expected x1 = %lg, x2 = %lg.\n",
-                                  test->test_number + 1, data->testing_data.coefficients.a, data->testing_data.coefficients.b, data->testing_data.coefficients.c, data->roots_returned.x1, data->roots_returned.x2,
-                                  data->testing_data.roots_expected.x1, data->testing_data.roots_expected.x2);
-        }
-
+    if (test->status == STATE::DEFAULT) {
+        Log(test, INFO, "Test No. %d successful \n", test->test_number + 1);
+    }
+    else if (!(roots->nroots == data->testing_data.roots_expected.nroots)){
+        Log(test, ERROR, "Error Test No%d a = %lg, b = %lg, c = %lg \n"
+                         "number of root nroots = %d, expected nroots = %d \n",
+                         test->test_number + 1,
+                         coeff->a, coeff->b, coeff->c,
+                         roots->nroots, data->testing_data.roots_expected.nroots);
+    }
+    else {
+        Log(test, ERROR, "Error Test No%d, a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg\n"
+                         "Expected x1 = %lg, x2 = %lg.\n",
+                         test->test_number + 1, coeff->a, coeff->b, coeff->c, roots->x1, roots->x2,
+                         data->testing_data.roots_expected.x1, data->testing_data.roots_expected.x2);
+    }
 }
 
-
-bool Run(testing_t *test, void* storage) {
+void Run(testing_t *test, void* storage) {
 
     store_data_t* data = (store_data_t*)(storage);
+    coefficients_t* coeff = &data->testing_data.coefficients;
+    roots_t* roots = &data->roots_returned;
 
-    data->roots_returned.nroots = QuadraticEquation(data->testing_data.coefficients.a, data->testing_data.coefficients.b, data->testing_data.coefficients.c, &(data->roots_returned.x1), &(data->roots_returned.x2));
-    if (IsEqual(data->testing_data.roots_expected.x1, data->roots_returned.x1) &&
-          IsEqual(data->testing_data.roots_expected.x2, data->roots_returned.x2) &&
-          IsEqual(data->roots_returned.nroots, data->testing_data.roots_expected.nroots)) {
-        test->status = DEFAULT;
-        test->print_message(test, data);
-        ASSERT_EQUAL(test->status);
-    }
-    test->status = ERROR;
-    test->print_message(test, data);
-    ASSERT_EQUAL(test->status);
+    roots->nroots = QuadraticEquation(coeff->a, coeff->b, coeff->c, &roots->x1, &roots->x2);
+
+    ASSERT_EQUAL(test, data->testing_data.roots_expected.nroots, roots->nroots);
+    ASSERT_EQUAL_DOUBLE(test, data->testing_data.roots_expected.x1, roots->x1);
+    ASSERT_EQUAL_DOUBLE(test, data->testing_data.roots_expected.x2, roots->x2);
 }
 
 bool RunAllTests() {
 
-    testing_data_t tests[]={
-                                 {{            0,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
+    const testing_data_t tests[]={
+                                 {{            1,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
                                  {{            1,  0,  0},{        0, NAN,        ONE_ROOT}},
                                  {{            0,  0,  1},{      NAN, NAN,        NO_ROOTS}},
                                  {{            0,  1,  0},{        0, NAN,        ONE_ROOT}},
@@ -70,6 +70,7 @@ bool RunAllTests() {
     tresults.output = fopen("output.txt", "w");
     tresults.run = &Run;
     tresults.print_message = &PrintMessage;
+    tresults.min_level = ERROR;
 
     for (size_t i = 0; i < length; i++) {
         storage.testing_data = tests[(int) i];
@@ -78,3 +79,79 @@ bool RunAllTests() {
     fclose(tresults.output);
     return 1;
 }
+
+
+void Log(testing_t *test, enum LOG_LEVEL status, const char *fmt, ...) {
+    char s[MAXLINE];
+    char p[MAXLINE];
+    strcpy(s, fmt);
+    ChangeStr(s, p);
+    printf("\"%s\" \"%s\"", s, p);
+    va_list args;
+    va_start (args, fmt);
+    if (test->min_level <= status) {
+        fprintf(test->output, "%s", LogPrint (status));
+        TimePrint(test->output);
+    }
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wformat-nonliteral"
+    vfprintf (test->output, p, args);
+#pragma clang diagnostic pop
+
+    va_end (args);
+}
+
+void TimePrint(FILE *out) {
+    time_t mytime = time(NULL);
+    struct tm *time = localtime(&mytime);
+    fprintf(out, "%02d.%02d.%d %02d:%02d:%02d ",
+            time->tm_mday, time->tm_mon + 1, time->tm_year + 1900,
+            time->tm_hour, time->tm_min,     time->tm_sec);
+}
+
+const char* LogPrint (enum LOG_LEVEL level) {
+    switch (level) {
+        case ERROR:
+            return "[ERROR] ";
+        case WARNING:
+            return "[WARNING] ";
+        case INFO:
+            return "[INFO] ";
+        case DEBUG:
+            return "[DEBUG] ";
+        default:
+            break;
+        }
+
+    return "!ERROR! ";
+}
+
+void ChangeStr(const char *s, char *p) {
+    int len = strlen(s);
+    if (len == 0) {
+        return;
+    }
+    int j = 0, i = 0;
+    p[j++] = '\n';
+    p[j++] = '\t';
+    for(; i < len; i++) {
+        if (s[i] == '\n') {
+            p[j++] = '\n';
+            p[j++] = '\t';
+        }
+        else {
+            p[j++] = s[i];
+        }
+    }
+    if (s[--i] == '\n') {
+        p[--j] = '\0';
+    }
+    else {
+        p[j] = '\0';
+    }
+
+}
+
+//logger, условная компиляция, tester
+//аргумкнты командной строки READ

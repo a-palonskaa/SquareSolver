@@ -14,8 +14,8 @@ int main() {
 
     coefficients_t quadr = {};
 
-    int statys = RunAllTests();
-    (void) statys;
+    int state = RunAllTests();
+    (void) state;
 
     int status = GetData(&quadr);
     if (status == INPUT_ERROR) {

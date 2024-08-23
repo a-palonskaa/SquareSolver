@@ -48,4 +48,8 @@ int IsNull(const double a);
 
 int IsEqual(const double a, const double b);
 
+double MaxTwo(double a, double b);
+
+double MaxThree(double a, double b, double c);
+
 #endif /* COMPARE_DOUBLE_H */

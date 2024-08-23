@@ -7,10 +7,11 @@ int BufferClean() {
 
     while ((a = getchar()) != EOF && a != '\n') {
         if (!isspace(a)) {
-        symbols++;
+            symbols++;
         }
     }
-    if (a == EOF) return END_OF_FILE;
-    if (symbols != 0) return SYMBOLS_INPUT_ERROR;
-    else return NO_ERRORS;
+
+    return a == EOF     ? END_OF_FILE :
+           symbols != 0 ? SYMBOLS_INPUT_ERROR :
+                          NO_ERRORS;
 }

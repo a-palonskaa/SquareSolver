@@ -8,25 +8,88 @@
 #include <stdio.h>
 
 #include "define_consts.h"
+#include "compare_double.h"
 
-#define ASSERT_EQUAL(condition) \
-    do {                        \
-        if (!condition) {       \
-            return 1;           \
-        }                       \
-        else {                  \
-            return 0;           \
-        }                       \
+//=======================================================================================
+
+#define ASSERT_TRUE(test, expr)             \
+    do {                                    \
+        if (!expr) {                        \
+            test->status = STATE::ERROR;    \
+            return;                         \
+        }                                   \
     } while (0)
 
+#define ASSERT_FALSE(test, stat)            \
+    do {                                    \
+        if (expr) {                         \
+            test->status = STATE::ERROR;    \
+            return;                         \
+        }                                   \
+    } while (0)
+
+#define ASSERT_EQUAL(test, state, want)    \
+    do {                                    \
+            if (state != want) {            \
+            test->status = STATE::ERROR;    \
+            return;                         \
+        }                                   \
+    } while (0);
+
+#define ASSERT_EQUAL_DOUBLE(test, a, b)     \
+    do {                                    \
+            if (!IsEqual(a, b)) {            \
+            test->status = STATE::ERROR;    \
+            return;                         \
+        }                                   \
+    } while (0);
+
+//=======================================================================================
+
+#define CHECK_TRUE(test, expr)              \
+    do {                                    \
+        if (!expr) {                        \
+            test->status = STATE::ERROR;    \
+        }                                   \
+    } while (0)
+
+#define CHECK_FALSE(test, stat)             \
+    do {                                    \
+        if (expr) {                         \
+            test->status = STATE::ERROR;    \
+        }                                   \
+    } while (0)
+
+#define CHECK_EQUAL(test, state, want)      \
+    do {                                    \
+            if(state != want) {             \
+            test->status = STATE::ERROR;    \
+        }                                   \
+    } while (0);
+
+#define CHECK_EQUAL_DOUBLE(test, a, b)      \
+    do {                                    \
+            if(!IsEqual(a, b)) {            \
+            test->status = STATE::ERROR;    \
+        }                                   \
+    } while (0);
+
+//=======================================================================================
+
 typedef void (*printer_t)(struct Testing *test, void *storage);
-typedef bool (*test_t)(struct Testing *test, void *storage);
+typedef void (*test_t)(struct Testing *test, void *storage);
 /**
  * @brief enum for define the STATE while checking for errors
  */
-enum STATES {
+enum class STATE {
     DEFAULT = true,  ///< no errors(default state)
-    ERROR   = false  ///< error
+    ERROR  = false  ///< error
+};
+enum LOG_LEVEL {
+    ERROR   = 0,
+    WARNING = 1,
+    INFO    = 2,
+    DEBUG   = 3
 };
 /** @struct testing_t
  * @brief Structure for the testing information
@@ -42,11 +105,12 @@ enum STATES {
  * Member 'print_message' is a pointer to the function that does not return anything and takes pointer to the non-defined-type and poiner to the structure type of Testing
  */
 typedef struct Testing {
-    bool status;
+    enum STATE status;
     int test_number;
     FILE *output;
     test_t  run;
     printer_t print_message;
+    enum LOG_LEVEL min_level;
 } testing_t;
 /**
 * @brief Run the test of quadratic equation

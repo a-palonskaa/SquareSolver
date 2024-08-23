@@ -6,7 +6,12 @@
 #define TEST_SOLVE_QUADR_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <math.h>
+#include <stdarg.h>
+#include <time.h>
+
 
 #include "define_consts.h"
 #include "solve_quadr.h"
@@ -40,6 +45,7 @@ typedef struct {
     coefficients_t coefficients;
     roots_t roots_expected;
 } testing_data_t;
+
 /** @store_data_t
   * @brief Structure for the testing data and data obtained by the programs' algorithm
   * @var store_data_t::testing_data
@@ -51,6 +57,7 @@ typedef struct {
     testing_data_t testing_data;
     roots_t roots_returned;
 } store_data_t;
+
 /**
 * @brief Run all tests of QuadraticEquation function
 * @return true if all tests were successful

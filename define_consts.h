@@ -9,6 +9,9 @@
 /**
  * @brief enum for errors type
  */
+
+const int MAXLINE = 500;
+
 enum ERRORS {
     NO_INPUT_ERRORS     = -1,   ///< no input errors
     INPUT_ERROR         =  0,   ///< input error
