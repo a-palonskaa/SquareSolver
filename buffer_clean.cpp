@@ -1,11 +1,11 @@
 #include "buffer_clean.h"
 
-int BufferClean() {
+int BufferClean(FILE* file) {
 
-    int a = 0;
+    int a       = 0;
     int symbols = 0;
 
-    while ((a = getchar()) != EOF && a != '\n') {
+    while ((a = getc(file)) != EOF && a != '\n') {
         if (!isspace(a)) {
             symbols++;
         }

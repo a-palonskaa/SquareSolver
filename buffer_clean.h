@@ -17,6 +17,6 @@
  *         If there were only scape symbols and the last one is not EOF return NO_ERRORS.
  */
 
-int BufferClean();
+int BufferClean(FILE* file);
 
 #endif /* BUFFER_CLEAN_H */

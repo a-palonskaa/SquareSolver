@@ -47,7 +47,7 @@ void Run(testing_t *test, void* storage) {
 bool RunAllTests() {
 
     const testing_data_t tests[]={
-                                 {{            1,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
+                                 {{            0,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
                                  {{            1,  0,  0},{        0, NAN,        ONE_ROOT}},
                                  {{            0,  0,  1},{      NAN, NAN,        NO_ROOTS}},
                                  {{            0,  1,  0},{        0, NAN,        ONE_ROOT}},
@@ -82,11 +82,10 @@ bool RunAllTests() {
 
 
 void Log(testing_t *test, enum LOG_LEVEL status, const char *fmt, ...) {
-    char s[MAXLINE];
-    char p[MAXLINE];
+    char s[MAXLINE] = "";
+    char p[MAXLINE] = "";
     strcpy(s, fmt);
     ChangeStr(s, p);
-    printf("\"%s\" \"%s\"", s, p);
     va_list args;
     va_start (args, fmt);
     if (test->min_level <= status) {
@@ -128,11 +127,11 @@ const char* LogPrint (enum LOG_LEVEL level) {
 }
 
 void ChangeStr(const char *s, char *p) {
-    int len = strlen(s);
+    size_t len = strlen(s);
     if (len == 0) {
         return;
     }
-    int j = 0, i = 0;
+    size_t j = 0, i = 0;
     p[j++] = '\n';
     p[j++] = '\t';
     for(; i < len; i++) {

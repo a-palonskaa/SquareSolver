@@ -17,6 +17,6 @@
 * @return 1 if the error emerged
           0 if successfully printed the solution
 */
-int ShowResults(enum NUM_ROOTS nroots, const double x1, const double x2);
+int ShowResults(enum NUM_ROOTS nroots, const double x1, const double x2, FILE *file);
 
 #endif /* SHOW_RESULTS_H */

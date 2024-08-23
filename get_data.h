@@ -16,6 +16,6 @@
 * @return NO_INPUT_ERRORS if data was successfully written in coefficients structure
 *         INPUT_ERROR if data was not written
 */
-int GetData(coefficients_t *quadr_coeff);
+int GetData(coefficients_t *quadr_coeff, FILE* file);
 
 #endif /* GET_DATA_H */

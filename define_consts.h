@@ -6,12 +6,30 @@
 #define DEFINE_CONSTS_H
 
 #include <stdio.h>
-/**
- * @brief enum for errors type
- */
 
 const int MAXLINE = 500;
 
+/**
+ * @brief enum for flags
+ */
+enum FLAGS {
+    SOLVE = 0,
+    TEST  = 1
+};
+
+enum class OUTPUT_FLAGS {
+    CONSOLE = 0,
+    FILE    = 1
+};
+
+enum class INPUT_FLAGS {
+    CONSOLE = 0,
+    FILE    = 1
+};
+
+/**
+ * @brief enum for errors type
+ */
 enum ERRORS {
     NO_INPUT_ERRORS     = -1,   ///< no input errors
     INPUT_ERROR         =  0,   ///< input error

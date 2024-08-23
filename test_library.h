@@ -86,10 +86,10 @@ enum class STATE {
     ERROR  = false  ///< error
 };
 enum LOG_LEVEL {
-    ERROR   = 0,
-    WARNING = 1,
-    INFO    = 2,
-    DEBUG   = 3
+    DEBUG   = 0,
+    INFO    = 1,
+    WARNING = 2,
+    ERROR   = 3
 };
 /** @struct testing_t
  * @brief Structure for the testing information
