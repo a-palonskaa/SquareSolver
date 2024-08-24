@@ -11,6 +11,7 @@
 
 #include "get_data.h"
 #include "compare_double.h"
+
 /**
  * @brief Solve the quadratic equation, write the roots, and return number of roots
  * @param[in] a Coefficient at the 2nd degree
@@ -21,6 +22,7 @@
  * @return number of roots type of NUM_ROOTS
  */
 enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, double *x2);
+
 /**
  * @brief Solve a linear equation, write the root of linear equation, and return number of roots
  * @param[in] b Coefficient at the 1st degree

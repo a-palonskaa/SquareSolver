@@ -6,6 +6,10 @@
 #define TEST_LIBRARY_H
 
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdarg.h>
+#include <time.h>
 
 #include "define_consts.h"
 #include "compare_double.h"
@@ -20,7 +24,7 @@
         }                                   \
     } while (0)
 
-#define ASSERT_FALSE(test, stat)            \
+#define ASSERT_FALSE(test, expr)            \
     do {                                    \
         if (expr) {                         \
             test->status = STATE::ERROR;    \
@@ -28,9 +32,9 @@
         }                                   \
     } while (0)
 
-#define ASSERT_EQUAL(test, state, want)    \
+#define ASSERT_EQUAL(test, state, want)     \
     do {                                    \
-            if (state != want) {            \
+        if (state != want) {                \
             test->status = STATE::ERROR;    \
             return;                         \
         }                                   \
@@ -38,7 +42,7 @@
 
 #define ASSERT_EQUAL_DOUBLE(test, a, b)     \
     do {                                    \
-            if (!IsEqual(a, b)) {            \
+        if (!IsEqual(a, b)) {               \
             test->status = STATE::ERROR;    \
             return;                         \
         }                                   \
@@ -53,7 +57,7 @@
         }                                   \
     } while (0)
 
-#define CHECK_FALSE(test, stat)             \
+#define CHECK_FALSE(test, expr)             \
     do {                                    \
         if (expr) {                         \
             test->status = STATE::ERROR;    \
@@ -62,14 +66,14 @@
 
 #define CHECK_EQUAL(test, state, want)      \
     do {                                    \
-            if(state != want) {             \
+        if (state != want) {                \
             test->status = STATE::ERROR;    \
         }                                   \
     } while (0);
 
 #define CHECK_EQUAL_DOUBLE(test, a, b)      \
     do {                                    \
-            if(!IsEqual(a, b)) {            \
+        if (!IsEqual(a, b)) {               \
             test->status = STATE::ERROR;    \
         }                                   \
     } while (0);
@@ -78,6 +82,7 @@
 
 typedef void (*printer_t)(struct Testing *test, void *storage);
 typedef void (*test_t)(struct Testing *test, void *storage);
+
 /**
  * @brief enum for define the STATE while checking for errors
  */
@@ -85,12 +90,14 @@ enum class STATE {
     DEFAULT = true,  ///< no errors(default state)
     ERROR  = false  ///< error
 };
+
 enum LOG_LEVEL {
     DEBUG   = 0,
     INFO    = 1,
     WARNING = 2,
     ERROR   = 3
 };
+
 /** @struct testing_t
  * @brief Structure for the testing information
  * @var testing_t::status
@@ -112,6 +119,7 @@ typedef struct Testing {
     printer_t print_message;
     enum LOG_LEVEL min_level;
 } testing_t;
+
 /**
 * @brief Run the test of quadratic equation
 * @param[in] test Pointer to the testing_t structure
@@ -119,5 +127,10 @@ typedef struct Testing {
 * @param[in] data Pointer to the non-defined-type variable
 */
 void TestRun(testing_t *test, int test_number, void *data);
+
+void Log(testing_t *test, enum LOG_LEVEL status, const char *fmt, ...);
+void TimePrint(FILE *out);
+void ChangeStr(const char *s, char *p);
+const char* LogPrint(enum LOG_LEVEL level);
 
 #endif /* TEST_LIBRARY_H */

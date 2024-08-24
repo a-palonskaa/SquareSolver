@@ -38,6 +38,7 @@ enum ERRORS {
     SYMBOLS_INPUT_ERROR =  1,   ///< error of detecting non-number, non-spaces symbols
     NO_ERRORS           =  2    ///< no errors
 };
+
 /**
  * @brief enum for number of roots definition
  */
@@ -48,6 +49,7 @@ enum NUM_ROOTS {
     TWO_ROOTS =       2,   ///< two roots
     NON_VALID_INPUT = 3    ///< non valid input
 };
+
 /** @struct coefficients_t
   * @brief Structure for coefficients of quadraric equation
   * @var Coeff::a
@@ -62,5 +64,13 @@ typedef struct {
     double b;
     double c;
 } coefficients_t;
+
+typedef struct {
+    enum FLAGS mode;               ///< default status solve mode
+    enum OUTPUT_FLAGS output;      ///< default status print to console
+    enum INPUT_FLAGS  input;       ///< default status read from console
+    const char* file_input;        ///< pointer to the string with input file name
+    const char* file_output;       ///< pointer to the string with output file name
+} flags_t;
 
 #endif /* DEFINE_CONSTS_H */

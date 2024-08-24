@@ -23,6 +23,6 @@ int ShowResults(enum NUM_ROOTS nroots, const double x1, const double x2, FILE *f
             fclose(file);
             return 1;
     }
-    fclose(file);
+    fclose(file); // TODO: move
     return 0;
 }

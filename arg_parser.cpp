@@ -1,24 +1,52 @@
 #include "arg_parser.h"
 
+static int ChangeFlagMode  (flags_t *flags, int *argc, const char *argv[]);
+static int ChangeFlagInput (flags_t *flags, int *argc, const char *argv[]);
+static int ChangeFlagOutput(flags_t *flags, int *argc, const char *argv[]);
 
-void ArgParser(int argc, const char *argv[],
-               enum FLAGS *flag_mode, enum OUTPUT_FLAGS *flag_output, enum INPUT_FLAGS  *flag_input,
-               char *file_input, char *file_output) {
-    while (--argc > 0) {
+const option_t commands[] = { {"-t",            "Testing mode",   &ChangeFlagMode},
+                              {"-i", "Read data from the file",  &ChangeFlagInput},
+                              {"-o",             "Print data ", &ChangeFlagOutput}
+};
+
+int ArgParser(int *argc, const char *argv[], flags_t *flags) {
+    size_t length = sizeof(commands) / sizeof(commands[0]);
+    while (--(*argc) > 0) {
         argv++;
-        if (!strcmp(*argv, "-t")) {           //testing mode
-            *flag_mode = TEST;
-        }
-        if (!strcmp(*argv, "-i")) {           //read a name of the file to read the data from
-            *flag_input = INPUT_FLAGS::FILE;
-            strcpy(file_input, *++argv);
-            argc--;
-        }
-        if (!strcmp(*argv, "-o")) {            //read a name of the file to print the results
-            *flag_output = OUTPUT_FLAGS::FILE;
-            strcpy(file_output, *++argv);
-            argc--;
+        for (size_t i = 0; i < length; i++) {
+            if(!strcmp(*argv, commands[i].name)) {
+                if (commands[i].change(flags, argc, argv) == INPUT_ERROR) {
+                    printf("ERROR OF COMMAND \n");
+                    return INPUT_ERROR;
+                }
+            }
         }
     }
+    return NO_ERRORS;
+}
 
+int ChangeFlagMode(flags_t *flags, int *argc, const char *argv[]) {
+    (void) argc;
+    (void) argv;
+    flags->mode = TEST;
+    return NO_ERRORS;
+}
+int ChangeFlagInput(flags_t *flags, int *argc, const char *argv[]) {
+    flags->input = INPUT_FLAGS::FILE;
+    flags->file_input = *++argv;
+    (*argc)--;
+    if (*argc == 0) {
+        return INPUT_ERROR;
+    }
+    return NO_ERRORS;
+}
+
+int ChangeFlagOutput(flags_t *flags, int *argc, const char *argv[]) {
+    flags->output = OUTPUT_FLAGS::FILE;
+    flags->file_output = *++argv;
+    (*argc)--;
+    if (*argc == 0) {
+        return INPUT_ERROR;
+    }
+    return NO_ERRORS;
 }

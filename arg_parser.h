@@ -6,9 +6,15 @@
 
 #include "define_consts.h"
 
+int ArgParser(int *argc, const char *argv[], flags_t *flags);
 
-void ArgParser(int argc, const char *argv[],
-               enum FLAGS *flag_mode, enum OUTPUT_FLAGS *flag_output, enum INPUT_FLAGS  *flag_input,
-               char *file_input, char *file_output);
+typedef int (*changeflag_t) (flags_t *flags, int *argc, const char *argv[]);
+
+typedef struct{
+    const char *name;
+    const char description[MAXLINE];
+    changeflag_t change;
+} option_t;
+
 
 #endif /* ARG_PARCER_H */
