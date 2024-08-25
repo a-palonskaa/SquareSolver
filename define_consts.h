@@ -12,6 +12,11 @@ const int MAXLINE = 500;
 /**
  * @brief enum for flags
  */
+enum class VALIDATION {
+    DEFAULT = 0,
+    ACTIVE  = 1
+};
+
 enum FLAGS {
     SOLVE = 0,
     TEST  = 1
@@ -43,11 +48,11 @@ enum ERRORS {
  * @brief enum for number of roots definition
  */
 enum NUM_ROOTS {
-    INF_ROOTS =      -1,   ///< infinite number of roots
-    NO_ROOTS  =       0,   ///< no roots
-    ONE_ROOT  =       1,   ///< one root
-    TWO_ROOTS =       2,   ///< two roots
-    NON_VALID_INPUT = 3    ///< non valid input
+    INF_ROOTS       = -1,   ///< infinite number of roots
+    NO_ROOTS        =  0,   ///< no roots
+    ONE_ROOT        =  1,   ///< one root
+    TWO_ROOTS       =  2,   ///< two roots
+    NON_VALID_INPUT =  3    ///< non valid input
 };
 
 /** @struct coefficients_t
@@ -66,11 +71,26 @@ typedef struct {
 } coefficients_t;
 
 typedef struct {
-    enum FLAGS mode;               ///< default status solve mode
-    enum OUTPUT_FLAGS output;      ///< default status print to console
-    enum INPUT_FLAGS  input;       ///< default status read from console
-    const char* file_input;        ///< pointer to the string with input file name
-    const char* file_output;       ///< pointer to the string with output file name
+    enum FLAGS         mode;                 ///< default status solve mode
+    enum VALIDATION    mode_test_valid;
+    enum VALIDATION    mode_solve_valid;
+    enum OUTPUT_FLAGS  output;               ///< default status print to console
+    enum VALIDATION    output_console_valid;
+    enum VALIDATION    output_file_valid;
+    enum INPUT_FLAGS   input;
+    enum VALIDATION    input_console_valid;  ///< default status read from console
+    enum VALIDATION    input_file_valid;
+    const char*        file_input;           ///< pointer to the string with input file name
+    const char*        file_output;          ///< pointer to the string with output file name
 } flags_t;
 
+enum LOG_LEVEL {
+    DEBUG   = 0,
+    INFO    = 1,
+    WARNING = 2,
+    ERROR   = 3
+};
+
+
 #endif /* DEFINE_CONSTS_H */
+

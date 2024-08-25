@@ -11,8 +11,10 @@
 #include <stdarg.h>
 #include <time.h>
 
+#include "logger.h"
 #include "define_consts.h"
 #include "compare_double.h"
+#include "print_colors.h"
 
 //=======================================================================================
 
@@ -91,12 +93,6 @@ enum class STATE {
     ERROR  = false  ///< error
 };
 
-enum LOG_LEVEL {
-    DEBUG   = 0,
-    INFO    = 1,
-    WARNING = 2,
-    ERROR   = 3
-};
 
 /** @struct testing_t
  * @brief Structure for the testing information
@@ -126,11 +122,10 @@ typedef struct Testing {
 * @param[in] test_number Number of the test
 * @param[in] data Pointer to the non-defined-type variable
 */
-void TestRun(testing_t *test, int test_number, void *data);
+bool TestRun(testing_t *test, int test_number, void *data);
 
-void Log(testing_t *test, enum LOG_LEVEL status, const char *fmt, ...);
 void TimePrint(FILE *out);
 void ChangeStr(const char *s, char *p);
-const char* LogPrint(enum LOG_LEVEL level);
+
 
 #endif /* TEST_LIBRARY_H */

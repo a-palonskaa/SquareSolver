@@ -1,0 +1,4 @@
+#!/bin/zsh
+echo "0 0 0" | ./square -i stdin
+./square -i
+./square -i u

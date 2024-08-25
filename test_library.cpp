@@ -1,33 +1,14 @@
 #include "test_library.h"
 
 // const char* name
-void TestRun(testing_t *test, int test_number, void *data) {
+bool TestRun(testing_t *test, int test_number, void *data) {
     test->status = STATE::DEFAULT;
     test->test_number = test_number;
     test->run(test, data);
     test->print_message(test, data);
+    return (test->status == STATE::DEFAULT) ? 0 : 1;
 }
 
-
-void Log(testing_t *test, enum LOG_LEVEL status, const char *fmt, ...) {
-    char s[MAXLINE] = "";
-    char p[MAXLINE] = "";
-    strcpy(s, fmt);
-    ChangeStr(s, p);
-    va_list args;
-    va_start (args, fmt);
-    if (test->min_level <= status) {
-        fprintf(test->output, "%s", LogPrint (status));
-        TimePrint(test->output);
-    }
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wformat-nonliteral"
-    vfprintf (test->output, p, args);
-#pragma clang diagnostic pop
-
-    va_end (args);
-}
 
 void TimePrint(FILE *out) {
     time_t mytime = time(NULL);
@@ -37,22 +18,6 @@ void TimePrint(FILE *out) {
             time->tm_hour, time->tm_min,     time->tm_sec);
 }
 
-const char* LogPrint (enum LOG_LEVEL level) {
-    switch (level) {
-        case ERROR:
-            return "[ERROR] ";
-        case WARNING:
-            return "[WARNING] ";
-        case INFO:
-            return "[INFO] ";
-        case DEBUG:
-            return "[DEBUG] ";
-        default:
-            break;
-        }
-
-    return "!ERROR! ";
-}
 
 void ChangeStr(const char *s, char *p) {
     size_t len = strlen(s);
@@ -80,6 +45,4 @@ void ChangeStr(const char *s, char *p) {
 
 }
 
-// arg_parse
-//logger, условная компиляция
-//покрасить вывод
+//logger, условная компиляция для флага с тестами

@@ -8,22 +8,21 @@ void PrintMessage(testing_t* test, void *storage) {
     store_data_t* data = (store_data_t*)(storage);
     coefficients_t* coeff = &data->testing_data.coefficients;
     roots_t* roots = &data->roots_returned;
-
     if (test->status == STATE::DEFAULT) {
-        Log(test, INFO, "Test No. %d successful \n", test->test_number + 1);
+        Log(INFO, "Test No. %d successful \n", test->test_number + 1);
     }
     else if (!(roots->nroots == data->testing_data.roots_expected.nroots)){
-        Log(test, ERROR, "Error Test No%d a = %lg, b = %lg, c = %lg \n"
-                         "number of root nroots = %d, expected nroots = %d \n",
-                         test->test_number + 1,
-                         coeff->a, coeff->b, coeff->c,
-                         roots->nroots, data->testing_data.roots_expected.nroots);
+        Log(ERROR, "Error Test No%d a = %lg, b = %lg, c = %lg \n"
+                   "number of root nroots = %d, expected nroots = %d \n",
+                   test->test_number + 1,
+                   coeff->a, coeff->b, coeff->c,
+                   roots->nroots, data->testing_data.roots_expected.nroots);
     }
     else {
-        Log(test, ERROR, "Error Test No%d, a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg\n"
-                         "Expected x1 = %lg, x2 = %lg.\n",
-                         test->test_number + 1, coeff->a, coeff->b, coeff->c, roots->x1, roots->x2,
-                         data->testing_data.roots_expected.x1, data->testing_data.roots_expected.x2);
+        Log(ERROR, "Error Test No%d, a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg\n"
+                    "Expected x1 = %lg, x2 = %lg.\n",
+                    test->test_number + 1, coeff->a, coeff->b, coeff->c, roots->x1, roots->x2,
+                    data->testing_data.roots_expected.x1, data->testing_data.roots_expected.x2);
     }
 }
 
@@ -40,7 +39,9 @@ void Run(testing_t *test, void* storage) {
     ASSERT_EQUAL_DOUBLE(test, data->testing_data.roots_expected.x2, roots->x2);
 }
 
-bool RunAllTests() {
+bool RunAllTests(FILE *file_out) {
+
+    int status = 0;
 
     const testing_data_t tests[]={
                                  {{            0,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
@@ -63,15 +64,16 @@ bool RunAllTests() {
     testing_t tresults = {};
 
     store_data_t storage = {};
-    tresults.output = fopen("output.txt", "w");
+    tresults.output = file_out;
     tresults.run = &Run;
     tresults.print_message = &PrintMessage;
     tresults.min_level = ERROR;
 
     for (size_t i = 0; i < length; i++) {
         storage.testing_data = tests[(int) i];
-        TestRun(&tresults,(int) i, &storage);
+        status += TestRun(&tresults,(int) i, &storage);
     }
     fclose(tresults.output);
-    return 1;
+
+    return status != 0;
 }

@@ -7,30 +7,28 @@
 #include "get_data.h"
 #include "solve_quadr.h"
 #include "show_results.h"
+#ifndef NO_TEST
 #include "test_solve_quadr.h"
+#endif
 #include "arg_parser.h"
 
 int main(int argc, const char *argv[]) {
 
-    flags_t flags   =                    {};
-    flags.mode      =                 SOLVE;
-    flags.output    = OUTPUT_FLAGS::CONSOLE;
-    flags.input     =  INPUT_FLAGS::CONSOLE;
+    flags_t flags = {};
+    InitiallizeFlags(&flags);
 
     if (ArgParser(&argc, argv, &flags) == INPUT_ERROR) {
         return EXIT_FAILURE;
     }
 
     FILE *file_in  = (flags.input  ==  INPUT_FLAGS::CONSOLE) ? stdin  :  fopen(flags.file_input, "r");
-    FILE *file_out = (flags.output == OUTPUT_FLAGS::CONSOLE) ? stdout : fopen(flags.file_output, "w");
-
     if (file_in == NULL) {
-        printf("FAILED TO OPEN INPUT FILE \n"); //perror instead of printf и между файлопен вставить
+        perror(RED("FAILED TO OPEN INPUT FILE \n"));
         return EXIT_FAILURE;
     }
-
+    FILE *file_out = (flags.output == OUTPUT_FLAGS::CONSOLE) ? stdout : fopen(flags.file_output, "w");
     if (file_out == NULL) {
-        printf("FAILED TO OPEN OUTPUT FILE \n");
+        perror(RED("FAILED TO OPEN OUTPUT FILE \n"));
         return EXIT_FAILURE;
     }
 
@@ -38,12 +36,14 @@ int main(int argc, const char *argv[]) {
 
     coefficients_t coefficients = {};
 
-    if (flags.mode == TEST) {
-        int state = RunAllTests();
-        (void) state;
-        return EXIT_SUCCESS; // TODO: return state ....
-    }
+LoggerSetLevel(WARNING);
+LoggerSetFile(file_out);
 
+#ifndef NO_TEST
+    if (flags.mode == TEST) {
+        return RunAllTests(file_out);
+    }
+#endif
     int status = GetData(&coefficients, file_in);
     if (status == INPUT_ERROR) {
         fprintf(file_out, "INPUT ERROR");
@@ -56,6 +56,7 @@ int main(int argc, const char *argv[]) {
     enum NUM_ROOTS nroots = QuadraticEquation(coefficients.a, coefficients.b, coefficients.c, &x1, &x2);
 
     ShowResults(nroots, x1, x2, file_out);
+    fclose(file_out);
 
     return EXIT_SUCCESS;
 }

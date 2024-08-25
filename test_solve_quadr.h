@@ -18,6 +18,7 @@
 #include "test_library.h"
 #include "compare_double.h"
 #include "print_colors.h"
+#include "logger.h"
 
 /** @struct Roots_expected
  * @brief Structure for the expected roots
@@ -63,6 +64,6 @@ typedef struct {
 * @return true if all tests were successful
 *         false if there were mistakes
 */
-bool RunAllTests();
+bool RunAllTests(FILE *file_out);
 
 #endif /* TEST_SOLVE_QUADR_H */
