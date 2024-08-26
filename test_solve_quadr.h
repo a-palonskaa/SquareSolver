@@ -1,6 +1,6 @@
 /**
  * @file test_solve_quadr.h
- * @brief Tests the function QuadraticEquation that solve quadratic equations
+ * @brief Test the function QuadraticEquation that solve quadratic equations
  */
 #ifndef TEST_SOLVE_QUADR_H
 #define TEST_SOLVE_QUADR_H
@@ -64,6 +64,6 @@ typedef struct {
 * @return true if all tests were successful
 *         false if there were mistakes
 */
-bool RunAllTests(FILE *file_out);
+bool RunAllTests();
 
 #endif /* TEST_SOLVE_QUADR_H */

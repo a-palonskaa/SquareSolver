@@ -10,29 +10,6 @@
 const int MAXLINE = 500;
 
 /**
- * @brief enum for flags
- */
-enum class VALIDATION {
-    DEFAULT = 0,
-    ACTIVE  = 1
-};
-
-enum FLAGS {
-    SOLVE = 0,
-    TEST  = 1
-};
-
-enum class OUTPUT_FLAGS {
-    CONSOLE = 0,
-    FILE    = 1
-};
-
-enum class INPUT_FLAGS {
-    CONSOLE = 0,
-    FILE    = 1
-};
-
-/**
  * @brief enum for errors type
  */
 enum ERRORS {
@@ -70,26 +47,6 @@ typedef struct {
     double c;
 } coefficients_t;
 
-typedef struct {
-    enum FLAGS         mode;                 ///< default status solve mode
-    enum VALIDATION    mode_test_valid;
-    enum VALIDATION    mode_solve_valid;
-    enum OUTPUT_FLAGS  output;               ///< default status print to console
-    enum VALIDATION    output_console_valid;
-    enum VALIDATION    output_file_valid;
-    enum INPUT_FLAGS   input;
-    enum VALIDATION    input_console_valid;  ///< default status read from console
-    enum VALIDATION    input_file_valid;
-    const char*        file_input;           ///< pointer to the string with input file name
-    const char*        file_output;          ///< pointer to the string with output file name
-} flags_t;
-
-enum LOG_LEVEL {
-    DEBUG   = 0,
-    INFO    = 1,
-    WARNING = 2,
-    ERROR   = 3
-};
 
 
 #endif /* DEFINE_CONSTS_H */

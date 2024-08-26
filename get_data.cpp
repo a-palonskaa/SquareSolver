@@ -13,16 +13,13 @@ int GetData(coefficients_t *quadr_coeff, FILE* file) {
         flag = fscanf(file, "%lg %lg %lg", &(quadr_coeff->a), &(quadr_coeff->b) , &(quadr_coeff->c));
 
         if (flag == EOF) {
-            fclose(file);
             return INPUT_ERROR;
         }
 
         if ((buffer = BufferClean(file)) == END_OF_FILE) {
-            fclose(file);
             return INPUT_ERROR;
         }
 
     } while (flag != 3 || buffer == SYMBOLS_INPUT_ERROR);
-    fclose(file);
     return NO_INPUT_ERRORS;
 }

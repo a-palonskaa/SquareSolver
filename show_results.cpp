@@ -19,7 +19,6 @@ int ShowResults(enum NUM_ROOTS nroots, const double x1, const double x2, FILE *f
             fprintf(file, "Non-valid input  \n");
             break;
         default:
-            fclose(file);
             assert(0 && "ERROR nroots");
             return 1;
     }

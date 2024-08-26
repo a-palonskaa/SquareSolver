@@ -7,7 +7,7 @@ static logger_t* GetLogger()
 }
 
 void LoggerSetFile(FILE* out) {
-    GetLogger()->file_out  =   out;
+    GetLogger()->file_out = out;
 }
 
 void LoggerSetLevel(enum LOG_LEVEL level) {
@@ -19,27 +19,25 @@ void Log(enum LOG_LEVEL status, const char *fmt, ...) {
         return;
     }
 
-    char s[MAXLINE] = "";
-    char p[MAXLINE] = "";
-    strcpy(s, fmt);
-    ChangeStr(s, p);
+    char dst[MAXLINE] = "";
+    AestheticizeString(fmt, dst, MAXLINE);
+
     va_list args;
     va_start (args, fmt);
 
     bool color = GetLogger()->file_out == stdout;
-    fprintf(GetLogger()->file_out, "%s", LogPrint (status, color));
+    fprintf(GetLogger()->file_out, "%s", LogMessageTypePrint (status, color));
     TimePrint(GetLogger()->file_out);
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wformat-nonliteral"
-    vfprintf (GetLogger()->file_out, p, args);
+    vfprintf (GetLogger()->file_out,dst, args);
 #pragma clang diagnostic pop
 
     va_end (args);
 }
 
-
-const char* LogPrint (enum LOG_LEVEL level, bool color) { //1 если красить 0 если нет
+const char* LogMessageTypePrint (enum LOG_LEVEL level, bool color) {
     if (color) {
         switch (level) {
         case ERROR:

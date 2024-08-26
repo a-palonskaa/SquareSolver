@@ -1,6 +1,6 @@
 /**
  * @file print_colors.h
- * @brief dDefine colors for colorful output
+ * @brief Define colors for colorful output
  */
 #ifndef PRINT_COLORS_H
 #define PRINT_COLORS_H

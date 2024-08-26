@@ -90,7 +90,7 @@ typedef void (*test_t)(struct Testing *test, void *storage);
  */
 enum class STATE {
     DEFAULT = true,  ///< no errors(default state)
-    ERROR  = false  ///< error
+    ERROR  = false   ///< error
 };
 
 
@@ -110,10 +110,8 @@ enum class STATE {
 typedef struct Testing {
     enum STATE status;
     int test_number;
-    FILE *output;
     test_t  run;
     printer_t print_message;
-    enum LOG_LEVEL min_level;
 } testing_t;
 
 /**
@@ -124,8 +122,17 @@ typedef struct Testing {
 */
 bool TestRun(testing_t *test, int test_number, void *data);
 
+/**
+* @brief Print the time of the message
+* @param[in] out Pointer to the output file
+*/
 void TimePrint(FILE *out);
-void ChangeStr(const char *s, char *p);
+
+/**
+* @brief Add tabs for each line
+* @param[in] out Pointer to the output file
+*/
+void AestheticizeString(const char *src, char *dst, size_t max_len);
 
 
 #endif /* TEST_LIBRARY_H */

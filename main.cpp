@@ -17,7 +17,7 @@ int main(int argc, const char *argv[]) {
     flags_t flags = {};
     InitiallizeFlags(&flags);
 
-    if (ArgParser(&argc, argv, &flags) == INPUT_ERROR) {
+    if (ArgParser(argc, argv, &flags) == INPUT_ERROR) {
         return EXIT_FAILURE;
     }
 
@@ -32,18 +32,21 @@ int main(int argc, const char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    fprintf(file_out, "Quadratic equation solver \n");
+    LoggerSetLevel(INFO);
+    LoggerSetFile(file_out);
+
+    fprintf(file_out, "Quadratic equation solver \n"); //TODO: не выводить в режиме тестов
 
     coefficients_t coefficients = {};
 
-LoggerSetLevel(WARNING);
-LoggerSetFile(file_out);
-
 #ifndef NO_TEST
     if (flags.mode == TEST) {
-        return RunAllTests(file_out);
+        int status = RunAllTests();
+        fclose(file_out);
+        return status;
     }
 #endif
+
     int status = GetData(&coefficients, file_in);
     if (status == INPUT_ERROR) {
         fprintf(file_out, "INPUT ERROR");

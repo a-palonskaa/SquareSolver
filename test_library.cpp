@@ -6,7 +6,7 @@ bool TestRun(testing_t *test, int test_number, void *data) {
     test->test_number = test_number;
     test->run(test, data);
     test->print_message(test, data);
-    return (test->status == STATE::DEFAULT) ? 0 : 1;
+    return test->status != STATE::DEFAULT;
 }
 
 
@@ -19,30 +19,28 @@ void TimePrint(FILE *out) {
 }
 
 
-void ChangeStr(const char *s, char *p) {
-    size_t len = strlen(s);
+void AestheticizeString(const char *src, char *dst, size_t max_len) {
+    size_t len = strlen(src);
     if (len == 0) {
         return;
     }
     size_t j = 0, i = 0;
-    p[j++] = '\n';
-    p[j++] = '\t';
-    for(; i < len; i++) {
-        if (s[i] == '\n') {
-            p[j++] = '\n';
-            p[j++] = '\t';
+    dst[j++] = '\n';
+    dst[j++] = '\t';
+    for(; i < len && j < max_len - 1; i++) {
+        if (src[i] == '\n') {
+            dst[j++] = '\n';
+            dst[j++] = '\t';
         }
         else {
-            p[j++] = s[i];
+            dst[j++] = src[i];
         }
     }
-    if (s[--i] == '\n') {
-        p[--j] = '\0';
+    if (src[--i] == '\n') {
+        dst[--j] = '\0';
     }
     else {
-        p[j] = '\0';
+        dst[j] = '\0';
     }
 
 }
-
-//logger, условная компиляция для флага с тестами

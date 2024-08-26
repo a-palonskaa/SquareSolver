@@ -16,7 +16,6 @@
  *         If there were symbols except space symbols return SYMBOLS_INPUT_ERROR.
  *         If there were only scape symbols and the last one is not EOF return NO_ERRORS.
  */
-
 int BufferClean(FILE* file);
 
 #endif /* BUFFER_CLEAN_H */

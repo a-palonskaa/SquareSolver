@@ -39,7 +39,7 @@ void Run(testing_t *test, void* storage) {
     ASSERT_EQUAL_DOUBLE(test, data->testing_data.roots_expected.x2, roots->x2);
 }
 
-bool RunAllTests(FILE *file_out) {
+bool RunAllTests() {
 
     int status = 0;
 
@@ -64,16 +64,14 @@ bool RunAllTests(FILE *file_out) {
     testing_t tresults = {};
 
     store_data_t storage = {};
-    tresults.output = file_out;
     tresults.run = &Run;
     tresults.print_message = &PrintMessage;
-    tresults.min_level = ERROR;
+
 
     for (size_t i = 0; i < length; i++) {
         storage.testing_data = tests[(int) i];
         status += TestRun(&tresults,(int) i, &storage);
     }
-    fclose(tresults.output);
 
     return status != 0;
 }
