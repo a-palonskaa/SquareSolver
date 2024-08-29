@@ -1,6 +1,8 @@
 #include "get_data.h"
 
 int GetData(coefficients_t *quadr_coeff, FILE* file) {
+    assert(file != nullptr);
+    assert(quadr_coeff != nullptr);
 
     int flag  = 0;
     int buffer = 0;

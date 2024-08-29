@@ -10,6 +10,7 @@
 #include <math.h>
 #include <stdarg.h>
 #include <time.h>
+#include <assert.h>
 
 #include "logger.h"
 #include "define_consts.h"
@@ -128,18 +129,6 @@ typedef struct Testing {
 * @param[in] data Pointer to the non-defined-type variable
 */
 bool TestRun(testing_t *test, int test_number, void *data);
-
-/**
-* @brief Print the time of the message
-* @param[in] out Pointer to the output file
-*/
-void TimePrint(FILE *out);
-
-/**
-* @brief Add tabs for each line
-* @param[in] out Pointer to the output file
-*/
-void AestheticizeString(const char *src, char *dst, size_t max_len);
 
 #endif /* TEST_LIBRARY_H */
 

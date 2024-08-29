@@ -1,9 +1,22 @@
 #include "test_solve_quadr.h"
 
+/**
+* @brief Print results of the testing
+* @param[out] test Pointer to the structure type of testing_t
+* @param[out] storage Pointer to the untyped variable
+*/
 static void PrintMessage(testing_t* test, void *storage);
-static void Run(testing_t *test, void* storage);
+
+/**
+* @brief Rewrite roots in ascending order
+* @param[out] test Pointer to the structure type of testing_t
+* @param[out] storage Pointer to the untyped variable
+*/
+static void Run(testing_t *test, void *storage);
 
 void PrintMessage(testing_t* test, void *storage) {
+    assert(test != nullptr);
+    assert(storage != nullptr);
 
     store_data_t* data = (store_data_t*)(storage);
     coefficients_t* coeff = &data->testing_data.coefficients;
@@ -28,6 +41,8 @@ void PrintMessage(testing_t* test, void *storage) {
 }
 
 void Run(testing_t *test, void* storage) {
+    assert(test != nullptr);
+    assert(storage != nullptr);
 
     store_data_t* data = (store_data_t*)(storage);
     coefficients_t* coeff = &data->testing_data.coefficients;
@@ -41,7 +56,6 @@ void Run(testing_t *test, void* storage) {
 }
 
 bool RunAllTests() {
-
     int status = 0;
 
     const testing_data_t tests[]={
@@ -70,7 +84,7 @@ bool RunAllTests() {
 
     for (size_t i = 0; i < length; i++) {
         storage.testing_data = tests[i];
-        status += TestRun(&tresults,(int) i, &storage);
+        status += TestRun(&tresults, (int) i, &storage);
     }
 
     return status != 0;

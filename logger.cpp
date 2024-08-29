@@ -1,12 +1,13 @@
 #include "logger.h"
 
-static logger_t* GetLogger()
-{
+static logger_t* GetLogger() {
     static logger_t logger = {};
     return &logger;
 }
 
 void LoggerSetFile(FILE* out) {
+    assert(out != nullptr);
+
     GetLogger()->file_out = out;
 }
 
@@ -15,6 +16,8 @@ void LoggerSetLevel(enum LOG_LEVEL level) {
 }
 
 void Log(enum LOG_LEVEL status, const char *fmt, ...) {
+    assert(fmt != nullptr);
+
     if (GetLogger()->min_level > status) {
         return;
     }
@@ -31,7 +34,7 @@ void Log(enum LOG_LEVEL status, const char *fmt, ...) {
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wformat-nonliteral"
-    vfprintf (GetLogger()->file_out,dst, args);
+    vfprintf (GetLogger()->file_out, dst, args);
 #pragma clang diagnostic pop
 
     va_end (args);
@@ -66,5 +69,44 @@ const char* LogMessageTypePrint (enum LOG_LEVEL level, bool color) {
                 break;
         }
     }
-    return "!ERROR! ";
+    return "!ERROR!";
+}
+
+void TimePrint(FILE *out) {
+    assert(out != nullptr);
+
+    time_t mytime = time(NULL);
+    struct tm *time = localtime(&mytime);
+    fprintf(out, "%02d.%02d.%d %02d:%02d:%02d ",
+            time->tm_mday, time->tm_mon + 1, time->tm_year + 1900,
+            time->tm_hour, time->tm_min,     time->tm_sec);
+}
+
+void AestheticizeString(const char *src, char *dst, size_t max_len) {
+    assert(src != nullptr);
+    assert(dst != nullptr);
+
+    size_t len = strnlen(src, max_len);
+
+    if (len == 0) {
+        return;
+    }
+    size_t j = 0, i = 0;
+    dst[j++] = '\n';
+    dst[j++] = '\t';
+    for(; i < len && j < max_len - 1; i++) {
+        if (src[i] == '\n') {
+            dst[j++] = '\n';
+            dst[j++] = '\t';
+        }
+        else {
+            dst[j++] = src[i];
+        }
+    }
+    if (src[--i] == '\n') {
+        dst[--j] = '\0';
+    }
+    else {
+        dst[j] = '\0';
+    }
 }

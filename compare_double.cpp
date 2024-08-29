@@ -4,7 +4,7 @@
 #include <math.h>
 
 int IsInf(const double a) {
-    static const double inf1 = INFINITY, inf2 = -INFINITY;
+    const double inf1 = INFINITY, inf2 = -INFINITY;
     return ((memcmp(&a, &inf1, sizeof(a)) == 0) -
             (memcmp(&a, &inf2, sizeof(a)) == 0));
 }
@@ -22,7 +22,7 @@ int IsNull(const double num) {
 }
 
 int IsEqual(const double a, const double b) {
-    static const double epsilon = 0.00000001;
+    const double epsilon = 1e-8;
 
     if (IsNan(a) && IsNan(b)) {
         return 1;
@@ -40,10 +40,10 @@ int IsEqual(const double a, const double b) {
     return 0;
 }
 
-double MaxTwo(double a, double b) {
+double MaxTwo(const double a, const double b) {
     return (a > b) ? a : b;
 }
 
-double MaxThree(double a, double b, double c) {
+double MaxThree(const double a, const double b, const double c) {
     return MaxTwo(c, MaxTwo(a, b));
 }

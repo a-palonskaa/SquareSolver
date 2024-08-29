@@ -14,7 +14,6 @@
 #endif
 
 int main(int argc, const char *argv[]) {
-
     flags_t flags = {};
     InitiallizeFlags(&flags);
 
@@ -23,12 +22,13 @@ int main(int argc, const char *argv[]) {
     }
 
     FILE *file_in  = (flags.input  ==  INPUT_FLAGS::CONSOLE) ? stdin  :  fopen(flags.file_input, "r");
-    if (file_in == NULL) {
+    if (file_in == nullptr) {
         perror(RED("FAILED TO OPEN INPUT FILE \n"));
         return EXIT_FAILURE;
     }
+
     FILE *file_out = (flags.output == OUTPUT_FLAGS::CONSOLE) ? stdout : fopen(flags.file_output, "w");
-    if (file_out == NULL) {
+    if (file_out == nullptr) {
         perror(RED("FAILED TO OPEN OUTPUT FILE \n"));
         return EXIT_FAILURE;
     }
@@ -50,7 +50,15 @@ int main(int argc, const char *argv[]) {
     int status = GetData(&coefficients, file_in);
     if (status == INPUT_ERROR) {
         fprintf(file_out, "INPUT ERROR");
-        fclose(file_out);
+
+        if (fclose(file_out) == EOF ) {
+            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+        }
+
+        if (fclose(file_in) == EOF ) {
+            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+        }
+
         return EXIT_FAILURE;
     }
 
@@ -59,7 +67,14 @@ int main(int argc, const char *argv[]) {
     enum NUM_ROOTS nroots = QuadraticEquation(coefficients.a, coefficients.b, coefficients.c, &x1, &x2);
 
     ShowResults(nroots, x1, x2, file_out);
-    fclose(file_out);
+
+    if (fclose(file_out) == EOF ) {
+            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+        }
+
+    if (fclose(file_in) == EOF ) {
+            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+        }
 
     return EXIT_SUCCESS;
 }

@@ -1,6 +1,7 @@
 #include "buffer_clean.h"
 
 int BufferClean(FILE* file) {
+    assert(file != nullptr);
 
     int a       = 0;
     int symbols = 0;

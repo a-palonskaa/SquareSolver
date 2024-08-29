@@ -1,8 +1,16 @@
 #include "solve_quadr.h"
 
+/**
+* @brief Rewrite roots in ascending order
+* @param[out] x1 Pointer to the smaller root
+* @param[out] x2 Pointer to the greater root
+*/
 static void AnswerNorm(double *x1, double *x2);
 
 enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, double *x2) {
+    assert(x1 != nullptr);
+    assert(x2 != nullptr);
+    assert(x1 != x2);
 
     if (IsFinite(a) == 0 ||
         IsFinite(b) == 0 ||
@@ -11,10 +19,6 @@ enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, doubl
         *x2 = NAN;
         return NON_VALID_INPUT;
     }
-
-    assert(x1 != NULL);
-    assert(x2 != NULL);
-    assert(x1 != x2);
 
     if (IsNull(a)) {
         *x2 = NAN;
@@ -76,8 +80,7 @@ enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, doubl
 }
 
 enum NUM_ROOTS LinearEquation(double b, double c, double *x) {
-
-    assert(x != NULL);
+    assert(x != nullptr);
 
     if (IsNull(b)) {
 

@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 
 #include "print_colors.h"
 #include "define_consts.h"
@@ -53,14 +54,16 @@ enum class INPUT_FLAGS {
  * Member 'file_output' is a pointer to the string with output file name
  */
 typedef struct {
-    enum FLAGS         mode;
-    enum OUTPUT_FLAGS  output;
-    enum INPUT_FLAGS   input;
-    int  mode_valid;
-    int  input_valid;
-    int  output_valid;
-    const char*  file_input;
-    const char*  file_output;
+    enum FLAGS        mode;
+    enum OUTPUT_FLAGS output;
+    enum INPUT_FLAGS  input;
+
+    int mode_valid;
+    int input_valid;
+    int output_valid;
+
+    const char* file_input;
+    const char* file_output;
 } flags_t;
 
 /**
@@ -81,8 +84,8 @@ int ArgParser(int argc, const char *argv[], flags_t *flags);
 void InitiallizeFlags(flags_t *flags);
 
 /**
- * @brief The pointer to the function that changes flags
- */
+* @brief The pointer to the function that changes flags
+*/
 typedef enum ERRORS (*changeflag_t) (flags_t *flags, const char *argv);
 
 
@@ -103,7 +106,7 @@ typedef struct{
     const char *name;
     const char *long_name;
     changeflag_t change;
-    const char description[MAXLINE];
+    const char *description;
     bool has_arg;
 } option_t;
 

@@ -13,12 +13,12 @@ const int MAXLINE = 500;
  * @brief enum for errors type
  */
 enum ERRORS {
-    NO_INPUT_ERRORS     = -1,   ///< no input errors
-    INPUT_ERROR         =  0,   ///< input error
-    ROOTS_NUMBER_ERROR  =  1,   ///< error number of roots
-    END_OF_FILE         =  0,   ///< end of file
-    SYMBOLS_INPUT_ERROR =  1,   ///< error of detecting non-number, non-spaces symbols
-    NO_ERRORS           =  2    ///< no errors
+    NO_ERRORS           = 0,   ///< no errors
+    NO_INPUT_ERRORS     = 1,   ///< no input errors
+    INPUT_ERROR         = 2,   ///< input error
+    ROOTS_NUMBER_ERROR  = 3,   ///< error number of roots
+    END_OF_FILE         = 4,   ///< end of file
+    SYMBOLS_INPUT_ERROR = 5    ///< error of detecting non-number, non-spaces symbols
 };
 
 /**

@@ -6,6 +6,7 @@
 #define GET_DATA_H
 
 #include <stdio.h>
+#include <assert.h>
 
 #include "buffer_clean.h"
 #include "define_consts.h"

@@ -58,5 +58,16 @@ void LoggerSetLevel(enum LOG_LEVEL level);
  */
 const char* LogMessageTypePrint(enum LOG_LEVEL level, bool color);
 
+/**
+* @brief Print the time of the message
+* @param[in] out Pointer to the output file
+*/
+void TimePrint(FILE *out);
+
+/**
+* @brief Add tabs for each line
+* @param[in] out Pointer to the output file
+*/
+void AestheticizeString(const char *src, char *dst, size_t max_len);
 
 #endif /* LOGGER_H */

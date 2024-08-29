@@ -1,6 +1,7 @@
 #include "show_results.h"
 
 int ShowResults(enum NUM_ROOTS nroots, const double x1, const double x2, FILE *file) {
+    assert(file != nullptr);
 
     switch (nroots) {
         case NO_ROOTS:
