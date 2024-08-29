@@ -1,0 +1,57 @@
+\doxysection{arg\+\_\+parser.\+h}
+\hypertarget{arg__parser_8h_source}{}\label{arg__parser_8h_source}\mbox{\hyperlink{arg__parser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ ARG\_PARSER}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ARG\_PARSER}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{print__colors_8h}{print\_colors.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{define__consts_8h}{define\_consts.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{arg__parser_8h_afd2a3e1f988b8f765da51bf29b250ff0}{FLAGS}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_afd2a3e1f988b8f765da51bf29b250ff0ab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}}\ =\ 0,\ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_afd2a3e1f988b8f765da51bf29b250ff0ab2f0cd22b1963becef8b91d29d567fe8}{TEST}}\ \ =\ 1\ \ \ \ }
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1}{OUTPUT\_FLAGS}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a4695859f52d337ca3d7020b2c8f7882a}{CONSOLE}}\ =\ 0,\ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}}\ \ \ \ =\ 1\ \ \ }
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{arg__parser_8h_a36a6ef12395260bbebe53b6ea2fc0645}{INPUT\_FLAGS}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a4695859f52d337ca3d7020b2c8f7882a}{CONSOLE}}\ =\ 0,\ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}}\ \ \ \ =\ 1\ \ \ }
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{arg__parser_8h_afd2a3e1f988b8f765da51bf29b250ff0}{FLAGS}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structflags__t_a9134c37a5bbd8f7cbd895029a75c93f7}{mode}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1}{OUTPUT\_FLAGS}}\ \ \mbox{\hyperlink{structflags__t_a63cc78d890991c9345d6fefb178fef6b}{output}};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{arg__parser_8h_a36a6ef12395260bbebe53b6ea2fc0645}{INPUT\_FLAGS}}\ \ \ input;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{structflags__t_a7b3c01c335754f8976e0556a3d24d5f7}{mode\_valid}};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{structflags__t_a5dc303daad0fb87d99c8757f6cc43ed1}{input\_valid}};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{structflags__t_a7ee397bcddca0143eb1a02fb84f057da}{output\_valid}};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \mbox{\hyperlink{structflags__t_ab5a0c52681624732d19d0826d5be75e9}{file\_input}};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \mbox{\hyperlink{structflags__t_abb8cf2f66767cf9f92a5e2017ae19e94}{file\_output}};}
+\DoxyCodeLine{00064\ \}\ \mbox{\hyperlink{structflags__t}{flags\_t}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arg__parser_8h_abbb9e7048823f112376f8076676fccfe}{ArgParser}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *argv[],\ \mbox{\hyperlink{structflags__t}{flags\_t}}\ *flags);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arg__parser_8h_a5b3cdbb5620c0179e331ef88c900a9ee}{InitiallizeFlags}}(\mbox{\hyperlink{structflags__t}{flags\_t}}\ *flags);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286}{ERRORS}}\ (*\mbox{\hyperlink{arg__parser_8h_a79397121baebb27c71fdfd0320414660}{changeflag\_t}})\ (\mbox{\hyperlink{structflags__t}{flags\_t}}\ *flags,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *argv);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structoption__t_a75032e9243124fb289ae220621814d52}{name}};}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structoption__t_a5932f4026fec602c6d0b31178177a51e}{long\_name}};}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_a79397121baebb27c71fdfd0320414660}{changeflag\_t}}\ \mbox{\hyperlink{structoption__t_a21e1f1a92551acede30d94be78ea2581}{change}};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ description[MAXLINE];}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structoption__t_a68dd498647934ee9ea9e8d7b06cf8702}{has\_arg}};}
+\DoxyCodeLine{00108\ \}\ \mbox{\hyperlink{structoption__t}{option\_t}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ARG\_PARSER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

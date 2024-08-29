@@ -1,0 +1,138 @@
+\doxysection{logger.\+h File Reference}
+\hypertarget{logger_8h}{}\label{logger_8h}\index{logger.h@{logger.h}}
+
+
+Logger.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}test\+\_\+library.\+h"{}}\newline
+{\ttfamily \#include "{}define\+\_\+consts.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlogger__t}{logger\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure for the logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}} \{ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a0593585da9181e972974c1274d8f2b4f}{DEBUG}} = 0
+, \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a748005382152808a72b1a9177d9dc806}{INFO}} = 1
+, \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a984de77c680eaff141ec910e25568a81}{WARNING}} = 2
+, \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a2fd6f336d08340583bd620a7f5694c90}{ERROR}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em enum for the logging level \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{logger_8h_a7cebc33210e18db9e1213114af13924d}{Log}} (enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}} status, const char \texorpdfstring{$\ast$}{*}fmt,...)
+\begin{DoxyCompactList}\small\item\em Change mode of operation to the test mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logger_8h_a42c5260f8f4a3649b5784062b806cae6}{Logger\+Set\+File}} (\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Set output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logger_8h_a5d37e87e8787e65aee90a3e2f26a7bcb}{Logger\+Set\+Level}} (enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}} level)
+\begin{DoxyCompactList}\small\item\em Set output file. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{logger_8h_a79d14554e01ab51bde5217d29f5f064b}{Log\+Message\+Type\+Print}} (enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}} level, bool color)
+\begin{DoxyCompactList}\small\item\em Identify the message type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logger. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{logger_8h_aa5a9053636a30269210c54e734e0d583}\index{logger.h@{logger.h}!LOG\_LEVEL@{LOG\_LEVEL}}
+\index{LOG\_LEVEL@{LOG\_LEVEL}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL}{LOG\_LEVEL}}
+{\footnotesize\ttfamily \label{logger_8h_aa5a9053636a30269210c54e734e0d583} 
+enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}}}
+
+
+
+enum for the logging level 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!logger.h@{logger.h}}\index{logger.h@{logger.h}!DEBUG@{DEBUG}}}\Hypertarget{logger_8h_aa5a9053636a30269210c54e734e0d583a0593585da9181e972974c1274d8f2b4f}\label{logger_8h_aa5a9053636a30269210c54e734e0d583} 
+DEBUG&debug level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INFO@{INFO}!logger.h@{logger.h}}\index{logger.h@{logger.h}!INFO@{INFO}}}\Hypertarget{logger_8h_aa5a9053636a30269210c54e734e0d583a748005382152808a72b1a9177d9dc806}\label{logger_8h_aa5a9053636a30269210c54e734e0d583} 
+INFO&informational level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING@{WARNING}!logger.h@{logger.h}}\index{logger.h@{logger.h}!WARNING@{WARNING}}}\Hypertarget{logger_8h_aa5a9053636a30269210c54e734e0d583a984de77c680eaff141ec910e25568a81}\label{logger_8h_aa5a9053636a30269210c54e734e0d583} 
+WARNING&warning level \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!logger.h@{logger.h}}\index{logger.h@{logger.h}!ERROR@{ERROR}}}\Hypertarget{logger_8h_aa5a9053636a30269210c54e734e0d583a2fd6f336d08340583bd620a7f5694c90}\label{logger_8h_aa5a9053636a30269210c54e734e0d583} 
+ERROR&error level \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{logger_8h_a7cebc33210e18db9e1213114af13924d}\index{logger.h@{logger.h}!Log@{Log}}
+\index{Log@{Log}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily \label{logger_8h_a7cebc33210e18db9e1213114af13924d} 
+void Log (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}}}]{status}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Change mode of operation to the test mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em status} & Logging status \\
+\hline
+\mbox{\texttt{ in}}  & {\em ...} & Arguments for format specification \\
+\hline
+\end{DoxyParams}
+\Hypertarget{logger_8h_a42c5260f8f4a3649b5784062b806cae6}\index{logger.h@{logger.h}!LoggerSetFile@{LoggerSetFile}}
+\index{LoggerSetFile@{LoggerSetFile}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LoggerSetFile()}{LoggerSetFile()}}
+{\footnotesize\ttfamily \label{logger_8h_a42c5260f8f4a3649b5784062b806cae6} 
+void Logger\+Set\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Set output file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em out} & Pointer to the file to print results \\
+\hline
+\end{DoxyParams}
+\Hypertarget{logger_8h_a5d37e87e8787e65aee90a3e2f26a7bcb}\index{logger.h@{logger.h}!LoggerSetLevel@{LoggerSetLevel}}
+\index{LoggerSetLevel@{LoggerSetLevel}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LoggerSetLevel()}{LoggerSetLevel()}}
+{\footnotesize\ttfamily \label{logger_8h_a5d37e87e8787e65aee90a3e2f26a7bcb} 
+void Logger\+Set\+Level (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}}}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Set output file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em level} & Logging level \\
+\hline
+\end{DoxyParams}
+\Hypertarget{logger_8h_a79d14554e01ab51bde5217d29f5f064b}\index{logger.h@{logger.h}!LogMessageTypePrint@{LogMessageTypePrint}}
+\index{LogMessageTypePrint@{LogMessageTypePrint}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LogMessageTypePrint()}{LogMessageTypePrint()}}
+{\footnotesize\ttfamily \label{logger_8h_a79d14554e01ab51bde5217d29f5f064b} 
+const char \texorpdfstring{$\ast$}{*} Log\+Message\+Type\+Print (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\+\_\+\+LEVEL}}}]{level}{, }\item[{bool}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Identify the message type. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em level} & Logging level \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Bool to define where or not dye status \\
+\hline
+\end{DoxyParams}

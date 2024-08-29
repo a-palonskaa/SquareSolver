@@ -1,0 +1,165 @@
+\doxysection{compare\+\_\+double.\+h File Reference}
+\hypertarget{compare__double_8h}{}\label{compare__double_8h}\index{compare\_double.h@{compare\_double.h}}
+
+
+Functions to compare variables of type double with\+: NULL, NAN, INFINITY, and other double variable.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{compare__double_8h_a5c4aa456862f2feb1cf53bb3114a42ed}{Is\+Finite}} (const double a)
+\begin{DoxyCompactList}\small\item\em Check if variable is not NAN or INFINITY. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{compare__double_8h_acfa06ece09b241858f2ca4ad5f67db7f}{Is\+Nan}} (const double a)
+\begin{DoxyCompactList}\small\item\em Check if variable is NAN. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{compare__double_8h_a242fc930d82eb97efb07394a00599d9b}{Is\+Inf}} (const double a)
+\begin{DoxyCompactList}\small\item\em Check if variable is INFINITY. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{compare__double_8h_ae9d5fdbdfa2fd218b733ee3379820b3b}{Is\+Null}} (const double a)
+\begin{DoxyCompactList}\small\item\em Check if variable is NULL. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{compare__double_8h_ad7698555b549d131861224c61cb5fd76}{Is\+Equal}} (const double a, const double b)
+\begin{DoxyCompactList}\small\item\em Check if variables type of double are equal. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{compare__double_8h_adfd938e131df8f769c4b41f39d34198a}{Max\+Two}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Find max double out of two. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{compare__double_8h_ae3e9cc0f1c85e23ffbf6ec15c83818f5}{Max\+Three}} (double a, double b, double c)
+\begin{DoxyCompactList}\small\item\em Find max double out of three. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to compare variables of type double with\+: NULL, NAN, INFINITY, and other double variable. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{compare__double_8h_ad7698555b549d131861224c61cb5fd76}\index{compare\_double.h@{compare\_double.h}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily \label{compare__double_8h_ad7698555b549d131861224c61cb5fd76} 
+int Is\+Equal (\begin{DoxyParamCaption}\item[{const double}]{a}{, }\item[{const double}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Check if variables type of double are equal. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & varible to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if variable are equal, 0 in other case 
+\end{DoxyReturn}
+\Hypertarget{compare__double_8h_a5c4aa456862f2feb1cf53bb3114a42ed}\index{compare\_double.h@{compare\_double.h}!IsFinite@{IsFinite}}
+\index{IsFinite@{IsFinite}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{IsFinite()}{IsFinite()}}
+{\footnotesize\ttfamily \label{compare__double_8h_a5c4aa456862f2feb1cf53bb3114a42ed} 
+int Is\+Finite (\begin{DoxyParamCaption}\item[{const double}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Check if variable is not NAN or INFINITY. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if variable is not NAN or INFINITY, 0 in other case 
+\end{DoxyReturn}
+\Hypertarget{compare__double_8h_a242fc930d82eb97efb07394a00599d9b}\index{compare\_double.h@{compare\_double.h}!IsInf@{IsInf}}
+\index{IsInf@{IsInf}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{IsInf()}{IsInf()}}
+{\footnotesize\ttfamily \label{compare__double_8h_a242fc930d82eb97efb07394a00599d9b} 
+int Is\+Inf (\begin{DoxyParamCaption}\item[{const double}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Check if variable is INFINITY. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if variable is INFINITY, 0 in other case 
+\end{DoxyReturn}
+\Hypertarget{compare__double_8h_acfa06ece09b241858f2ca4ad5f67db7f}\index{compare\_double.h@{compare\_double.h}!IsNan@{IsNan}}
+\index{IsNan@{IsNan}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{IsNan()}{IsNan()}}
+{\footnotesize\ttfamily \label{compare__double_8h_acfa06ece09b241858f2ca4ad5f67db7f} 
+int Is\+Nan (\begin{DoxyParamCaption}\item[{const double}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Check if variable is NAN. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if variable is NAN, 0 in other case 
+\end{DoxyReturn}
+\Hypertarget{compare__double_8h_ae9d5fdbdfa2fd218b733ee3379820b3b}\index{compare\_double.h@{compare\_double.h}!IsNull@{IsNull}}
+\index{IsNull@{IsNull}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{IsNull()}{IsNull()}}
+{\footnotesize\ttfamily \label{compare__double_8h_ae9d5fdbdfa2fd218b733ee3379820b3b} 
+int Is\+Null (\begin{DoxyParamCaption}\item[{const double}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Check if variable is NULL. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if variable is NULL, 0 in other case 
+\end{DoxyReturn}
+\Hypertarget{compare__double_8h_ae3e9cc0f1c85e23ffbf6ec15c83818f5}\index{compare\_double.h@{compare\_double.h}!MaxThree@{MaxThree}}
+\index{MaxThree@{MaxThree}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{MaxThree()}{MaxThree()}}
+{\footnotesize\ttfamily \label{compare__double_8h_ae3e9cc0f1c85e23ffbf6ec15c83818f5} 
+double Max\+Three (\begin{DoxyParamCaption}\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{double}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Find max double out of three. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & varible to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+max out of three value 
+\end{DoxyReturn}
+\Hypertarget{compare__double_8h_adfd938e131df8f769c4b41f39d34198a}\index{compare\_double.h@{compare\_double.h}!MaxTwo@{MaxTwo}}
+\index{MaxTwo@{MaxTwo}!compare\_double.h@{compare\_double.h}}
+\doxysubsubsection{\texorpdfstring{MaxTwo()}{MaxTwo()}}
+{\footnotesize\ttfamily \label{compare__double_8h_adfd938e131df8f769c4b41f39d34198a} 
+double Max\+Two (\begin{DoxyParamCaption}\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Find max double out of two. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Variable to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & varible to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+max out of two values 
+\end{DoxyReturn}

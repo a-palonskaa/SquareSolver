@@ -1,0 +1,117 @@
+\doxysection{define\+\_\+consts.\+h File Reference}
+\hypertarget{define__consts_8h}{}\label{define__consts_8h}\index{define\_consts.h@{define\_consts.h}}
+
+
+Functions to define types and structures.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcoefficients__t}{coefficients\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure for coefficients of quadraric equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286}{ERRORS}} \{ \newline
+\mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a447b8f645047ffbf2c9972d7fe079e75}{NO\+\_\+\+INPUT\+\_\+\+ERRORS}} = -\/1
+, \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286aec1024879d398de584d1722ebbe0a5c9}{INPUT\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a1798cc41aa3949cc9557d8728d40966f}{ROOTS\+\_\+\+NUMBER\+\_\+\+ERROR}} = 1
+, \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a7ea291c26de584b23fd7f9111784f860}{END\+\_\+\+OF\+\_\+\+FILE}} = 0
+, \newline
+\mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a5614394c56e72ef99cb6dce9b837807b}{SYMBOLS\+\_\+\+INPUT\+\_\+\+ERROR}} = 1
+, \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a14820276ae7e4047a53d9b78109f7e2a}{NO\+\_\+\+ERRORS}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em enum for errors type \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}} \{ \newline
+\mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3a5a79e9e49077da58fe5d46a98f0b5e36}{INF\+\_\+\+ROOTS}} = -\/1
+, \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3ab9a321da349ac1355b717745736ad90c}{NO\+\_\+\+ROOTS}} = 0
+, \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3a6700c0f6efd23571cb22aefd2510b1cf}{ONE\+\_\+\+ROOT}} = 1
+, \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3a876622d3c0b008da13a3685c64714e81}{TWO\+\_\+\+ROOTS}} = 2
+, \newline
+\mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3ac1e558c0e551c2029060cae56bbe86e5}{NON\+\_\+\+VALID\+\_\+\+INPUT}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em enum for number of roots definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{define__consts_8h_a4af19d530fc1e1df96478f0d3e2e64d5}\label{define__consts_8h_a4af19d530fc1e1df96478f0d3e2e64d5} 
+const int {\bfseries MAXLINE} = 500
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to define types and structures. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286}\index{define\_consts.h@{define\_consts.h}!ERRORS@{ERRORS}}
+\index{ERRORS@{ERRORS}!define\_consts.h@{define\_consts.h}}
+\doxysubsubsection{\texorpdfstring{ERRORS}{ERRORS}}
+{\footnotesize\ttfamily \label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+enum \mbox{\hyperlink{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286}{ERRORS}}}
+
+
+
+enum for errors type 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_INPUT\_ERRORS@{NO\_INPUT\_ERRORS}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!NO\_INPUT\_ERRORS@{NO\_INPUT\_ERRORS}}}\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a447b8f645047ffbf2c9972d7fe079e75}\label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+NO\+\_\+\+INPUT\+\_\+\+ERRORS&no input errors \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INPUT\_ERROR@{INPUT\_ERROR}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!INPUT\_ERROR@{INPUT\_ERROR}}}\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286aec1024879d398de584d1722ebbe0a5c9}\label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+INPUT\+\_\+\+ERROR&input error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_NUMBER\_ERROR@{ROOTS\_NUMBER\_ERROR}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!ROOTS\_NUMBER\_ERROR@{ROOTS\_NUMBER\_ERROR}}}\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a1798cc41aa3949cc9557d8728d40966f}\label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+ROOTS\+\_\+\+NUMBER\+\_\+\+ERROR&error number of roots \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END\_OF\_FILE@{END\_OF\_FILE}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!END\_OF\_FILE@{END\_OF\_FILE}}}\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a7ea291c26de584b23fd7f9111784f860}\label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+END\+\_\+\+OF\+\_\+\+FILE&end of file \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOLS\_INPUT\_ERROR@{SYMBOLS\_INPUT\_ERROR}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!SYMBOLS\_INPUT\_ERROR@{SYMBOLS\_INPUT\_ERROR}}}\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a5614394c56e72ef99cb6dce9b837807b}\label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+SYMBOLS\+\_\+\+INPUT\+\_\+\+ERROR&error of detecting non-\/number, non-\/spaces symbols \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_ERRORS@{NO\_ERRORS}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!NO\_ERRORS@{NO\_ERRORS}}}\Hypertarget{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286a14820276ae7e4047a53d9b78109f7e2a}\label{define__consts_8h_a622ccac4bed4b5ffcfd1acea83629286} 
+NO\+\_\+\+ERRORS&no errors \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}\index{define\_consts.h@{define\_consts.h}!NUM\_ROOTS@{NUM\_ROOTS}}
+\index{NUM\_ROOTS@{NUM\_ROOTS}!define\_consts.h@{define\_consts.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_ROOTS}{NUM\_ROOTS}}
+{\footnotesize\ttfamily \label{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3} 
+enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}}}
+
+
+
+enum for number of roots definition 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INF\_ROOTS@{INF\_ROOTS}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!INF\_ROOTS@{INF\_ROOTS}}}\Hypertarget{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3a5a79e9e49077da58fe5d46a98f0b5e36}\label{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3} 
+INF\+\_\+\+ROOTS&infinite number of roots \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_ROOTS@{NO\_ROOTS}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!NO\_ROOTS@{NO\_ROOTS}}}\Hypertarget{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3ab9a321da349ac1355b717745736ad90c}\label{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3} 
+NO\+\_\+\+ROOTS&no roots \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE\_ROOT@{ONE\_ROOT}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!ONE\_ROOT@{ONE\_ROOT}}}\Hypertarget{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3a6700c0f6efd23571cb22aefd2510b1cf}\label{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3} 
+ONE\+\_\+\+ROOT&one root \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO\_ROOTS@{TWO\_ROOTS}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!TWO\_ROOTS@{TWO\_ROOTS}}}\Hypertarget{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3a876622d3c0b008da13a3685c64714e81}\label{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3} 
+TWO\+\_\+\+ROOTS&two roots \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NON\_VALID\_INPUT@{NON\_VALID\_INPUT}!define\_consts.h@{define\_consts.h}}\index{define\_consts.h@{define\_consts.h}!NON\_VALID\_INPUT@{NON\_VALID\_INPUT}}}\Hypertarget{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3ac1e558c0e551c2029060cae56bbe86e5}\label{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3} 
+NON\+\_\+\+VALID\+\_\+\+INPUT&non valid input \\
+\hline
+
+\end{DoxyEnumFields}

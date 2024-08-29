@@ -1,0 +1,84 @@
+\doxysection{flags\+\_\+t Struct Reference}
+\hypertarget{structflags__t}{}\label{structflags__t}\index{flags\_t@{flags\_t}}
+
+
+Structure for flags of commands.  
+
+
+
+
+{\ttfamily \#include $<$arg\+\_\+parser.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{arg__parser_8h_afd2a3e1f988b8f765da51bf29b250ff0}{FLAGS}} \mbox{\hyperlink{structflags__t_a9134c37a5bbd8f7cbd895029a75c93f7}{mode}}
+\item 
+enum \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1}{OUTPUT\+\_\+\+FLAGS}} \mbox{\hyperlink{structflags__t_a63cc78d890991c9345d6fefb178fef6b}{output}}
+\item 
+\Hypertarget{structflags__t_ab3770c674f0b3c3c2a9ee9973358d741}\label{structflags__t_ab3770c674f0b3c3c2a9ee9973358d741} 
+enum \mbox{\hyperlink{arg__parser_8h_a36a6ef12395260bbebe53b6ea2fc0645}{INPUT\+\_\+\+FLAGS}} {\bfseries input}
+\item 
+int \mbox{\hyperlink{structflags__t_a7b3c01c335754f8976e0556a3d24d5f7}{mode\+\_\+valid}}
+\item 
+int \mbox{\hyperlink{structflags__t_a5dc303daad0fb87d99c8757f6cc43ed1}{input\+\_\+valid}}
+\item 
+int \mbox{\hyperlink{structflags__t_a7ee397bcddca0143eb1a02fb84f057da}{output\+\_\+valid}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structflags__t_ab5a0c52681624732d19d0826d5be75e9}{file\+\_\+input}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structflags__t_abb8cf2f66767cf9f92a5e2017ae19e94}{file\+\_\+output}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for flags of commands. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structflags__t_ab5a0c52681624732d19d0826d5be75e9}\index{flags\_t@{flags\_t}!file\_input@{file\_input}}
+\index{file\_input@{file\_input}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{file\_input}{file\_input}}
+{\footnotesize\ttfamily \label{structflags__t_ab5a0c52681624732d19d0826d5be75e9} 
+const char\texorpdfstring{$\ast$}{*} flags\+\_\+t\+::file\+\_\+input}
+
+Member \textquotesingle{}file\+\_\+input\textquotesingle{} is a pointer to the string with input file name \Hypertarget{structflags__t_abb8cf2f66767cf9f92a5e2017ae19e94}\index{flags\_t@{flags\_t}!file\_output@{file\_output}}
+\index{file\_output@{file\_output}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{file\_output}{file\_output}}
+{\footnotesize\ttfamily \label{structflags__t_abb8cf2f66767cf9f92a5e2017ae19e94} 
+const char\texorpdfstring{$\ast$}{*} flags\+\_\+t\+::file\+\_\+output}
+
+Member \textquotesingle{}file\+\_\+output\textquotesingle{} is a pointer to the string with output file name \Hypertarget{structflags__t_a5dc303daad0fb87d99c8757f6cc43ed1}\index{flags\_t@{flags\_t}!input\_valid@{input\_valid}}
+\index{input\_valid@{input\_valid}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{input\_valid}{input\_valid}}
+{\footnotesize\ttfamily \label{structflags__t_a5dc303daad0fb87d99c8757f6cc43ed1} 
+int flags\+\_\+t\+::input\+\_\+valid}
+
+Member \textquotesingle{}input\+\_\+valid\textquotesingle{} is a counter for input changes \Hypertarget{structflags__t_a9134c37a5bbd8f7cbd895029a75c93f7}\index{flags\_t@{flags\_t}!mode@{mode}}
+\index{mode@{mode}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \label{structflags__t_a9134c37a5bbd8f7cbd895029a75c93f7} 
+enum \mbox{\hyperlink{arg__parser_8h_afd2a3e1f988b8f765da51bf29b250ff0}{FLAGS}} flags\+\_\+t\+::mode}
+
+Member \textquotesingle{}mode\textquotesingle{} is a default status solve mode \Hypertarget{structflags__t_a7b3c01c335754f8976e0556a3d24d5f7}\index{flags\_t@{flags\_t}!mode\_valid@{mode\_valid}}
+\index{mode\_valid@{mode\_valid}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{mode\_valid}{mode\_valid}}
+{\footnotesize\ttfamily \label{structflags__t_a7b3c01c335754f8976e0556a3d24d5f7} 
+int flags\+\_\+t\+::mode\+\_\+valid}
+
+Member \textquotesingle{}mode\+\_\+valid\textquotesingle{} is a counter for mode changes \Hypertarget{structflags__t_a63cc78d890991c9345d6fefb178fef6b}\index{flags\_t@{flags\_t}!output@{output}}
+\index{output@{output}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily \label{structflags__t_a63cc78d890991c9345d6fefb178fef6b} 
+enum \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1}{OUTPUT\+\_\+\+FLAGS}} flags\+\_\+t\+::output}
+
+Member \textquotesingle{}output\textquotesingle{} is a default status print to console \Hypertarget{structflags__t_a7ee397bcddca0143eb1a02fb84f057da}\index{flags\_t@{flags\_t}!output\_valid@{output\_valid}}
+\index{output\_valid@{output\_valid}!flags\_t@{flags\_t}}
+\doxysubsubsection{\texorpdfstring{output\_valid}{output\_valid}}
+{\footnotesize\ttfamily \label{structflags__t_a7ee397bcddca0143eb1a02fb84f057da} 
+int flags\+\_\+t\+::output\+\_\+valid}
+
+Member \textquotesingle{}output\+\_\+valid\textquotesingle{} is a counter for output changes 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arg__parser_8h}{arg\+\_\+parser.\+h}}\end{DoxyCompactItemize}

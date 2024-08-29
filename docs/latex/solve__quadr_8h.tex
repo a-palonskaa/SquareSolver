@@ -1,0 +1,75 @@
+\doxysection{solve\+\_\+quadr.\+h File Reference}
+\hypertarget{solve__quadr_8h}{}\label{solve__quadr_8h}\index{solve\_quadr.h@{solve\_quadr.h}}
+
+
+Solve the quadratic equation knowing the coefficients.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include "{}get\+\_\+data.\+h"{}}\newline
+{\ttfamily \#include "{}compare\+\_\+double.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}} \mbox{\hyperlink{solve__quadr_8h_a19a2edf5074fa10a7daba51817d24ff3}{Quadratic\+Equation}} (double a, double b, double c, double \texorpdfstring{$\ast$}{*}x1, double \texorpdfstring{$\ast$}{*}x2)
+\begin{DoxyCompactList}\small\item\em Solve the quadratic equation, write the roots, and return number of roots. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}} \mbox{\hyperlink{solve__quadr_8h_a5a6bd1b5cec4498ed36cc1df8368d657}{Linear\+Equation}} (double b, double c, double \texorpdfstring{$\ast$}{*}x)
+\begin{DoxyCompactList}\small\item\em Solve a linear equation, write the root of linear equation, and return number of roots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solve the quadratic equation knowing the coefficients. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{solve__quadr_8h_a5a6bd1b5cec4498ed36cc1df8368d657}\index{solve\_quadr.h@{solve\_quadr.h}!LinearEquation@{LinearEquation}}
+\index{LinearEquation@{LinearEquation}!solve\_quadr.h@{solve\_quadr.h}}
+\doxysubsubsection{\texorpdfstring{LinearEquation()}{LinearEquation()}}
+{\footnotesize\ttfamily \label{solve__quadr_8h_a5a6bd1b5cec4498ed36cc1df8368d657} 
+enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}} Linear\+Equation (\begin{DoxyParamCaption}\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Solve a linear equation, write the root of linear equation, and return number of roots. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b} & Coefficient at the 1st degree \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & Free member coefficient \\
+\hline
+\mbox{\texttt{ out}}  & {\em x} & Root of the equation(\+NAN if there are no roots) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots type of NUM\+\_\+\+ROOTS 
+\end{DoxyReturn}
+\Hypertarget{solve__quadr_8h_a19a2edf5074fa10a7daba51817d24ff3}\index{solve\_quadr.h@{solve\_quadr.h}!QuadraticEquation@{QuadraticEquation}}
+\index{QuadraticEquation@{QuadraticEquation}!solve\_quadr.h@{solve\_quadr.h}}
+\doxysubsubsection{\texorpdfstring{QuadraticEquation()}{QuadraticEquation()}}
+{\footnotesize\ttfamily \label{solve__quadr_8h_a19a2edf5074fa10a7daba51817d24ff3} 
+enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}} Quadratic\+Equation (\begin{DoxyParamCaption}\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x1}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x2}{}\end{DoxyParamCaption})}
+
+
+
+Solve the quadratic equation, write the roots, and return number of roots. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Coefficient at the 2nd degree \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Coefficient at the 1st degree \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & Free member coefficient \\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & The smallest root(or INFINITY/ NAN) \\
+\hline
+\mbox{\texttt{ out}}  & {\em x2} & The greatest root(or INFINITY/ NAN) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots type of NUM\+\_\+\+ROOTS 
+\end{DoxyReturn}

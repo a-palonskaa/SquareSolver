@@ -1,0 +1,41 @@
+\doxysection{get\+\_\+data.\+h File Reference}
+\hypertarget{get__data_8h}{}\label{get__data_8h}\index{get\_data.h@{get\_data.h}}
+
+
+Read the data and check for the input errors.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}buffer\+\_\+clean.\+h"{}}\newline
+{\ttfamily \#include "{}define\+\_\+consts.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{get__data_8h_aae8b5b16c73b7525873003e65fa103b3}{Get\+Data}} (\mbox{\hyperlink{structcoefficients__t}{coefficients\+\_\+t}} \texorpdfstring{$\ast$}{*}quadr\+\_\+coeff, \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Read the data and write it into the structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Read the data and check for the input errors. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{get__data_8h_aae8b5b16c73b7525873003e65fa103b3}\index{get\_data.h@{get\_data.h}!GetData@{GetData}}
+\index{GetData@{GetData}!get\_data.h@{get\_data.h}}
+\doxysubsubsection{\texorpdfstring{GetData()}{GetData()}}
+{\footnotesize\ttfamily \label{get__data_8h_aae8b5b16c73b7525873003e65fa103b3} 
+int Get\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcoefficients__t}{coefficients\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{quadr\+\_\+coeff}{, }\item[{\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Read the data and write it into the structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em quadr\+\_\+coeff} & Poiner to the structure type Coeff with coefficients of equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NO\+\_\+\+INPUT\+\_\+\+ERRORS if data was successfully written in coefficients structure INPUT\+\_\+\+ERROR if data was not written 
+\end{DoxyReturn}

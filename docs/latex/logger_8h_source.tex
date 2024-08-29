@@ -1,0 +1,36 @@
+\doxysection{logger.\+h}
+\hypertarget{logger_8h_source}{}\label{logger_8h_source}\mbox{\hyperlink{logger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LOGGER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LOGGER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{test__library_8h}{test\_library.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{define__consts_8h}{define\_consts.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\_LEVEL}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a0593585da9181e972974c1274d8f2b4f}{DEBUG}}\ \ \ =\ 0,\ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a748005382152808a72b1a9177d9dc806}{INFO}}\ \ \ \ =\ 1,\ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a984de77c680eaff141ec910e25568a81}{WARNING}}\ =\ 2,\ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583a2fd6f336d08340583bd620a7f5694c90}{ERROR}}\ \ \ =\ 3\ \ \ \ \ }
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}}*\ \mbox{\hyperlink{structlogger__t_ad3f399cc4f2da275d57fab1152d92287}{file\_out}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\_LEVEL}}\ \mbox{\hyperlink{structlogger__t_a3ec75e629b151471f50f8c926c3eaa2b}{min\_level}};}
+\DoxyCodeLine{00033\ \}\ \mbox{\hyperlink{structlogger__t}{logger\_t}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logger_8h_a7cebc33210e18db9e1213114af13924d}{Log}}(\textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\_LEVEL}}\ status,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fmt,\ ...);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logger_8h_a42c5260f8f4a3649b5784062b806cae6}{LoggerSetFile}}(\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}}*\ out);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logger_8h_a5d37e87e8787e65aee90a3e2f26a7bcb}{LoggerSetLevel}}(\textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\_LEVEL}}\ level);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{logger_8h_a79d14554e01ab51bde5217d29f5f064b}{LogMessageTypePrint}}(\textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa5a9053636a30269210c54e734e0d583}{LOG\_LEVEL}}\ level,\ \textcolor{keywordtype}{bool}\ color);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LOGGER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,275 @@
+\doxysection{test\+\_\+library.\+h File Reference}
+\hypertarget{test__library_8h}{}\label{test__library_8h}\index{test\_library.h@{test\_library.h}}
+
+
+Library for testing data.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}logger.\+h"{}}\newline
+{\ttfamily \#include "{}define\+\_\+consts.\+h"{}}\newline
+{\ttfamily \#include "{}compare\+\_\+double.\+h"{}}\newline
+{\ttfamily \#include "{}print\+\_\+colors.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_testing}{Testing}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a8899ba6d12d6e250cab0b552a358fb07}{ASSERT\+\_\+\+TRUE}}(test,  expr)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a89dc797908c33ae64815ad7c498d198f}{ASSERT\+\_\+\+FALSE}}(test,  expr)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a1dd3e3a15b3b984395bfc58af6f55985}{ASSERT\+\_\+\+EQUAL}}(test,  state,  want)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a259a30a241d48c7cc7c852f89aa0795e}{ASSERT\+\_\+\+EQUAL\+\_\+\+DOUBLE}}(test,  a,  b)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_ac740ba5e2417c2f5865aca99c0ce5b85}{CHECK\+\_\+\+TRUE}}(test,  expr)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a989d465c55add7e09281428b3d475672}{CHECK\+\_\+\+FALSE}}(test,  expr)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a44c73f4d899d8356c7d20b55154377a4}{CHECK\+\_\+\+EQUAL}}(test,  state,  want)
+\item 
+\#define \mbox{\hyperlink{test__library_8h_a9493abebf2f14c818d522dfc17f2c99f}{CHECK\+\_\+\+EQUAL\+\_\+\+DOUBLE}}(test,  a,  b)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{test__library_8h_a36d381086e492eca64ba3a6ff37dbe3e}\label{test__library_8h_a36d381086e492eca64ba3a6ff37dbe3e} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries printer\+\_\+t}) (struct \mbox{\hyperlink{struct_testing}{Testing}} \texorpdfstring{$\ast$}{*}test, void \texorpdfstring{$\ast$}{*}storage)
+\begin{DoxyCompactList}\small\item\em The pointer to the function that prints testing results. \end{DoxyCompactList}\item 
+\Hypertarget{test__library_8h_aa338596be5d2d8b28f20a9da3aa8cab7}\label{test__library_8h_aa338596be5d2d8b28f20a9da3aa8cab7} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries test\+\_\+t}) (struct \mbox{\hyperlink{struct_testing}{Testing}} \texorpdfstring{$\ast$}{*}test, void \texorpdfstring{$\ast$}{*}storage)
+\begin{DoxyCompactList}\small\item\em The pointer to the function that conducts the test. \end{DoxyCompactList}\item 
+\Hypertarget{test__library_8h_a8b042f7f46a9f636a2de2044bdd577e1}\label{test__library_8h_a8b042f7f46a9f636a2de2044bdd577e1} 
+typedef struct \mbox{\hyperlink{struct_testing}{Testing}} {\bfseries testing\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \{ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647a5b39c8b553c821e7cddc6da64b5bd2ee}{DEFAULT}} = true
+, \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{ERROR}} = false
+ \}
+\begin{DoxyCompactList}\small\item\em enum for define the STATE while checking for errors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{test__library_8h_acce44761e708e9ec33f89fb307f478c9}{Test\+Run}} (\mbox{\hyperlink{structtesting__t}{testing\+\_\+t}} \texorpdfstring{$\ast$}{*}test, int test\+\_\+number, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Run the test of quadratic equation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__library_8h_a1822e855782cd959d731cdc46f676bb4}{Time\+Print}} (\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Print the time of the message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__library_8h_adfa6db7db3ae83bc4f8dd8a6d2f63b94}{Aestheticize\+String}} (const char \texorpdfstring{$\ast$}{*}src, char \texorpdfstring{$\ast$}{*}dst, size\+\_\+t max\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Add tabs for each line. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Library for testing data. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{test__library_8h_a1dd3e3a15b3b984395bfc58af6f55985}\index{test\_library.h@{test\_library.h}!ASSERT\_EQUAL@{ASSERT\_EQUAL}}
+\index{ASSERT\_EQUAL@{ASSERT\_EQUAL}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_EQUAL}{ASSERT\_EQUAL}}
+{\footnotesize\ttfamily \label{test__library_8h_a1dd3e3a15b3b984395bfc58af6f55985} 
+\#define ASSERT\+\_\+\+EQUAL(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{state}{, }\item[{}]{want}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (state\ !=\ want)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0);}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_a259a30a241d48c7cc7c852f89aa0795e}\index{test\_library.h@{test\_library.h}!ASSERT\_EQUAL\_DOUBLE@{ASSERT\_EQUAL\_DOUBLE}}
+\index{ASSERT\_EQUAL\_DOUBLE@{ASSERT\_EQUAL\_DOUBLE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_EQUAL\_DOUBLE}{ASSERT\_EQUAL\_DOUBLE}}
+{\footnotesize\ttfamily \label{test__library_8h_a259a30a241d48c7cc7c852f89aa0795e} 
+\#define ASSERT\+\_\+\+EQUAL\+\_\+\+DOUBLE(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!IsEqual(a,\ b))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0);}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_a89dc797908c33ae64815ad7c498d198f}\index{test\_library.h@{test\_library.h}!ASSERT\_FALSE@{ASSERT\_FALSE}}
+\index{ASSERT\_FALSE@{ASSERT\_FALSE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_FALSE}{ASSERT\_FALSE}}
+{\footnotesize\ttfamily \label{test__library_8h_a89dc797908c33ae64815ad7c498d198f} 
+\#define ASSERT\+\_\+\+FALSE(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{expr}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (expr)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_a8899ba6d12d6e250cab0b552a358fb07}\index{test\_library.h@{test\_library.h}!ASSERT\_TRUE@{ASSERT\_TRUE}}
+\index{ASSERT\_TRUE@{ASSERT\_TRUE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_TRUE}{ASSERT\_TRUE}}
+{\footnotesize\ttfamily \label{test__library_8h_a8899ba6d12d6e250cab0b552a358fb07} 
+\#define ASSERT\+\_\+\+TRUE(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{expr}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!expr)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_a44c73f4d899d8356c7d20b55154377a4}\index{test\_library.h@{test\_library.h}!CHECK\_EQUAL@{CHECK\_EQUAL}}
+\index{CHECK\_EQUAL@{CHECK\_EQUAL}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_EQUAL}{CHECK\_EQUAL}}
+{\footnotesize\ttfamily \label{test__library_8h_a44c73f4d899d8356c7d20b55154377a4} 
+\#define CHECK\+\_\+\+EQUAL(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{state}{, }\item[{}]{want}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (state\ !=\ want)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0);}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_a9493abebf2f14c818d522dfc17f2c99f}\index{test\_library.h@{test\_library.h}!CHECK\_EQUAL\_DOUBLE@{CHECK\_EQUAL\_DOUBLE}}
+\index{CHECK\_EQUAL\_DOUBLE@{CHECK\_EQUAL\_DOUBLE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_EQUAL\_DOUBLE}{CHECK\_EQUAL\_DOUBLE}}
+{\footnotesize\ttfamily \label{test__library_8h_a9493abebf2f14c818d522dfc17f2c99f} 
+\#define CHECK\+\_\+\+EQUAL\+\_\+\+DOUBLE(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!IsEqual(a,\ b))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0);}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_a989d465c55add7e09281428b3d475672}\index{test\_library.h@{test\_library.h}!CHECK\_FALSE@{CHECK\_FALSE}}
+\index{CHECK\_FALSE@{CHECK\_FALSE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_FALSE}{CHECK\_FALSE}}
+{\footnotesize\ttfamily \label{test__library_8h_a989d465c55add7e09281428b3d475672} 
+\#define CHECK\+\_\+\+FALSE(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{expr}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (expr)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+\Hypertarget{test__library_8h_ac740ba5e2417c2f5865aca99c0ce5b85}\index{test\_library.h@{test\_library.h}!CHECK\_TRUE@{CHECK\_TRUE}}
+\index{CHECK\_TRUE@{CHECK\_TRUE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_TRUE}{CHECK\_TRUE}}
+{\footnotesize\ttfamily \label{test__library_8h_ac740ba5e2417c2f5865aca99c0ce5b85} 
+\#define CHECK\+\_\+\+TRUE(\begin{DoxyParamCaption}\item[{}]{test}{, }\item[{}]{expr}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!expr)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test-\/>status\ =\ \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}{STATE::ERROR}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{test__library_8h_a275a67132f10277ada3a0ee3d616b647}\index{test\_library.h@{test\_library.h}!STATE@{STATE}}
+\index{STATE@{STATE}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{STATE}{STATE}}
+{\footnotesize\ttfamily \label{test__library_8h_a275a67132f10277ada3a0ee3d616b647} 
+enum class \mbox{\hyperlink{test__library_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+enum for define the STATE while checking for errors 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEFAULT@{DEFAULT}!test\_library.h@{test\_library.h}}\index{test\_library.h@{test\_library.h}!DEFAULT@{DEFAULT}}}\Hypertarget{test__library_8h_a275a67132f10277ada3a0ee3d616b647a5b39c8b553c821e7cddc6da64b5bd2ee}\label{test__library_8h_a275a67132f10277ada3a0ee3d616b647} 
+DEFAULT&no errors(default state) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!test\_library.h@{test\_library.h}}\index{test\_library.h@{test\_library.h}!ERROR@{ERROR}}}\Hypertarget{test__library_8h_a275a67132f10277ada3a0ee3d616b647abb1ca97ec761fc37101737ba0aa2e7c5}\label{test__library_8h_a275a67132f10277ada3a0ee3d616b647} 
+ERROR&error \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test__library_8h_adfa6db7db3ae83bc4f8dd8a6d2f63b94}\index{test\_library.h@{test\_library.h}!AestheticizeString@{AestheticizeString}}
+\index{AestheticizeString@{AestheticizeString}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{AestheticizeString()}{AestheticizeString()}}
+{\footnotesize\ttfamily \label{test__library_8h_adfa6db7db3ae83bc4f8dd8a6d2f63b94} 
+void Aestheticize\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{size\+\_\+t}]{max\+\_\+len}{}\end{DoxyParamCaption})}
+
+
+
+Add tabs for each line. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em out} & Pointer to the output file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__library_8h_acce44761e708e9ec33f89fb307f478c9}\index{test\_library.h@{test\_library.h}!TestRun@{TestRun}}
+\index{TestRun@{TestRun}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{TestRun()}{TestRun()}}
+{\footnotesize\ttfamily \label{test__library_8h_acce44761e708e9ec33f89fb307f478c9} 
+bool Test\+Run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtesting__t}{testing\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{test}{, }\item[{int}]{test\+\_\+number}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Run the test of quadratic equation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em test} & Pointer to the \doxylink{structtesting__t}{testing\+\_\+t} structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em test\+\_\+number} & Number of the test \\
+\hline
+\mbox{\texttt{ in}}  & {\em data} & Pointer to the non-\/defined-\/type variable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__library_8h_a1822e855782cd959d731cdc46f676bb4}\index{test\_library.h@{test\_library.h}!TimePrint@{TimePrint}}
+\index{TimePrint@{TimePrint}!test\_library.h@{test\_library.h}}
+\doxysubsubsection{\texorpdfstring{TimePrint()}{TimePrint()}}
+{\footnotesize\ttfamily \label{test__library_8h_a1822e855782cd959d731cdc46f676bb4} 
+void Time\+Print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Print the time of the message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em out} & Pointer to the output file \\
+\hline
+\end{DoxyParams}

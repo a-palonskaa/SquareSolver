@@ -1,0 +1,45 @@
+\doxysection{show\+\_\+results.\+h File Reference}
+\hypertarget{show__results_8h}{}\label{show__results_8h}\index{show\_results.h@{show\_results.h}}
+
+
+Print the results of solving quadratic equation.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include "{}define\+\_\+consts.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{show__results_8h_aaa150e37220f42f8c20f63d250873b3e}{Show\+Results}} (enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}} nroots, const double x1, const double x2, \mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Print the values of ​​the roots or an error message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Print the results of solving quadratic equation. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{show__results_8h_aaa150e37220f42f8c20f63d250873b3e}\index{show\_results.h@{show\_results.h}!ShowResults@{ShowResults}}
+\index{ShowResults@{ShowResults}!show\_results.h@{show\_results.h}}
+\doxysubsubsection{\texorpdfstring{ShowResults()}{ShowResults()}}
+{\footnotesize\ttfamily \label{show__results_8h_aaa150e37220f42f8c20f63d250873b3e} 
+int Show\+Results (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{define__consts_8h_a9b01e311f56b71339a819d0522e9b9d3}{NUM\+\_\+\+ROOTS}}}]{nroots}{, }\item[{const double}]{x1}{, }\item[{const double}]{x2}{, }\item[{\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Print the values of ​​the roots or an error message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nroots} & Number of roots type of NUM\+\_\+\+ROOTS \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & The smallest root(or INFINITY/ NAN) \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & The greatest root(or INFINITY/ NAN) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the error emerged 0 if successfully printed the solution 
+\end{DoxyReturn}

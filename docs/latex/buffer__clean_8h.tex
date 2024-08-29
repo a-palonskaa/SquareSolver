@@ -1,0 +1,36 @@
+\doxysection{buffer\+\_\+clean.\+h File Reference}
+\hypertarget{buffer__clean_8h}{}\label{buffer__clean_8h}\index{buffer\_clean.h@{buffer\_clean.h}}
+
+
+Function to clear the buffer.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include "{}define\+\_\+consts.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{buffer__clean_8h_a7781dbc64a669f9eb024d0f28b97172b}{Buffer\+Clean}} (\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Clear the buffer and return the read character information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function to clear the buffer. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{buffer__clean_8h_a7781dbc64a669f9eb024d0f28b97172b}\index{buffer\_clean.h@{buffer\_clean.h}!BufferClean@{BufferClean}}
+\index{BufferClean@{BufferClean}!buffer\_clean.h@{buffer\_clean.h}}
+\doxysubsubsection{\texorpdfstring{BufferClean()}{BufferClean()}}
+{\footnotesize\ttfamily \label{buffer__clean_8h_a7781dbc64a669f9eb024d0f28b97172b} 
+int Buffer\+Clean (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arg__parser_8h_a1aa1b0142a35a4946939b9218f3bbff1a9fc5887c030f7a3e19821ebec457e719}{FILE}} \texorpdfstring{$\ast$}{*}}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Clear the buffer and return the read character information. 
+
+\begin{DoxyReturn}{Returns}
+If the last symbol read is EOF return END\+\_\+\+OF\+\_\+\+FILE. If there were symbols except space symbols return SYMBOLS\+\_\+\+INPUT\+\_\+\+ERROR. If there were only scape symbols and the last one is not EOF return NO\+\_\+\+ERRORS. 
+\end{DoxyReturn}
