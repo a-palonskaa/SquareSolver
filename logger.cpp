@@ -2,7 +2,7 @@
 
 static logger_t* GetLogger()
 {
-    static logger_t logger;
+    static logger_t logger = {};
     return &logger;
 }
 
@@ -22,7 +22,7 @@ void Log(enum LOG_LEVEL status, const char *fmt, ...) {
     char dst[MAXLINE] = "";
     AestheticizeString(fmt, dst, MAXLINE);
 
-    va_list args;
+    va_list args = {};
     va_start (args, fmt);
 
     bool color = GetLogger()->file_out == stdout;

@@ -2,7 +2,7 @@
 
 static void AnswerNorm(double *x1, double *x2);
 
-enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, double *x2) { //константа для ошибки в NROOTS и разделить коэффициенты
+enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, double *x2) {
 
     if (IsFinite(a) == 0 ||
         IsFinite(b) == 0 ||

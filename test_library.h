@@ -20,7 +20,7 @@
 
 #define ASSERT_TRUE(test, expr)             \
     do {                                    \
-        if (!expr) {                        \
+        if (!(expr)) {                      \
             test->status = STATE::ERROR;    \
             return;                         \
         }                                   \
@@ -36,25 +36,25 @@
 
 #define ASSERT_EQUAL(test, state, want)     \
     do {                                    \
-        if (state != want) {                \
+        if ((state) != (want)) {            \
             test->status = STATE::ERROR;    \
             return;                         \
         }                                   \
-    } while (0);
+    } while (0)
 
 #define ASSERT_EQUAL_DOUBLE(test, a, b)     \
     do {                                    \
-        if (!IsEqual(a, b)) {               \
+        if (!IsEqual((a), (b))) {           \
             test->status = STATE::ERROR;    \
             return;                         \
         }                                   \
-    } while (0);
+    } while (0)
 
 //=======================================================================================
 
 #define CHECK_TRUE(test, expr)              \
     do {                                    \
-        if (!expr) {                        \
+        if (!(expr)) {                      \
             test->status = STATE::ERROR;    \
         }                                   \
     } while (0)
@@ -68,22 +68,29 @@
 
 #define CHECK_EQUAL(test, state, want)      \
     do {                                    \
-        if (state != want) {                \
+        if ((state) != (want)) {            \
             test->status = STATE::ERROR;    \
         }                                   \
-    } while (0);
+    } while (0)
 
 #define CHECK_EQUAL_DOUBLE(test, a, b)      \
     do {                                    \
-        if (!IsEqual(a, b)) {               \
+        if (!IsEqual((a), (b))) {           \
             test->status = STATE::ERROR;    \
         }                                   \
-    } while (0);
+    } while (0)
 
 //=======================================================================================
 
-typedef void (*printer_t)(struct Testing *test, void *storage);
-typedef void (*test_t)(struct Testing *test, void *storage);
+/**
+ * @brief The pointer to the function that prints testing results
+ */
+typedef void (*printer_t) (struct Testing *test, void *storage);
+
+/**
+ * @brief The pointer to the function that conducts the test
+ */
+typedef void (*test_t) (struct Testing *test, void *storage);
 
 /**
  * @brief enum for define the STATE while checking for errors
@@ -110,7 +117,7 @@ enum class STATE {
 typedef struct Testing {
     enum STATE status;
     int test_number;
-    test_t  run;
+    test_t run;
     printer_t print_message;
 } testing_t;
 
@@ -134,5 +141,5 @@ void TimePrint(FILE *out);
 */
 void AestheticizeString(const char *src, char *dst, size_t max_len);
 
-
 #endif /* TEST_LIBRARY_H */
+

@@ -2,3 +2,5 @@
 square
 build/
 .vscode/
+.DS_Store
+quadr_solver/

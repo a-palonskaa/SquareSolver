@@ -19,7 +19,7 @@ int GetData(coefficients_t *quadr_coeff, FILE* file) {
         if ((buffer = BufferClean(file)) == END_OF_FILE) {
             return INPUT_ERROR;
         }
-
     } while (flag != 3 || buffer == SYMBOLS_INPUT_ERROR);
+
     return NO_INPUT_ERRORS;
 }

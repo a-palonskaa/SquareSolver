@@ -12,7 +12,6 @@
 #include <stdarg.h>
 #include <time.h>
 
-
 #include "define_consts.h"
 #include "solve_quadr.h"
 #include "test_library.h"

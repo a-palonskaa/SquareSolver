@@ -3,14 +3,15 @@
 #include <string.h>
 
 #include "define_consts.h"
-#include "buffer_clean.h"
 #include "get_data.h"
 #include "solve_quadr.h"
 #include "show_results.h"
-#ifndef NO_TEST
+#include "logger.h"
+#include "arg_parser.h"
+
+#ifdef TESTING
 #include "test_solve_quadr.h"
 #endif
-#include "arg_parser.h"
 
 int main(int argc, const char *argv[]) {
 
@@ -35,17 +36,16 @@ int main(int argc, const char *argv[]) {
     LoggerSetLevel(INFO);
     LoggerSetFile(file_out);
 
-    fprintf(file_out, "Quadratic equation solver \n"); //TODO: не выводить в режиме тестов
-
-    coefficients_t coefficients = {};
-
-#ifndef NO_TEST
+#ifdef TESTING
     if (flags.mode == TEST) {
         int status = RunAllTests();
         fclose(file_out);
         return status;
     }
 #endif
+
+    fprintf(file_out, "Quadratic equation solver \n");
+    coefficients_t coefficients = {};
 
     int status = GetData(&coefficients, file_in);
     if (status == INPUT_ERROR) {

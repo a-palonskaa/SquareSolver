@@ -47,7 +47,4 @@ typedef struct {
     double c;
 } coefficients_t;
 
-
-
 #endif /* DEFINE_CONSTS_H */
-

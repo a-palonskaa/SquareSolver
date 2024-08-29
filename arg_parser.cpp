@@ -8,7 +8,7 @@
  *                INPUT ERROR if data was entered incorrectly;
  *                NO_ERRORS if data was entered correctly;
  */
-#ifndef NO_TEST
+#ifdef TESTING
 static enum ERRORS ChangeFlagModeTest(flags_t *flags, const char* arg);
 #endif
 
@@ -87,7 +87,7 @@ static void PrintHelp();
 enum ERRORS ValidateInput(flags_t *flags);
 
 const option_t commands[] = {
-#ifndef NO_TEST
+#ifdef TESTING
         {"-t",           "--test",                  &ChangeFlagModeTest,                 "Testing mode", 0},
 #endif
         {"-s",          "--solve",                 &ChangeFlagModeSolve,                 "Solving mode", 0},
@@ -103,9 +103,12 @@ const size_t length = sizeof(commands) / sizeof(commands[0]);
 int ArgParser(int argc, const char *argv[], flags_t *flags) {
     while (--argc > 0) {
         argv++;
+        int flag = 0;
         for (size_t i = 0; i < length; i++) {
             if(!(strcmp(*argv, commands[i].name) &&
                  strcmp(*argv, commands[i].long_name))) {
+
+                flag++;
 
                 if (commands[i].has_arg && argc <= 1) {
                     PrintHelp();
@@ -126,9 +129,11 @@ int ArgParser(int argc, const char *argv[], flags_t *flags) {
                     printf(RED("ERROR OF COMMAND \n"));
                     return INPUT_ERROR;
                 }
-
-                break;
             }
+        }
+        if (!flag) {
+            printf(RED("UNKNOWN COMMAND \n"));
+            return INPUT_ERROR;
         }
     }
     return ValidateInput(flags);
@@ -141,7 +146,7 @@ enum ERRORS ChangeFlagModeSolve(flags_t *flags, const char* arg) {
     return NO_ERRORS;
 }
 
-#ifndef NO_TEST
+#ifdef TESTING
 enum ERRORS ChangeFlagModeTest(flags_t *flags, const char* arg) {
     (void) arg;
     flags->mode = TEST;
@@ -167,7 +172,6 @@ enum ERRORS ChangeFlagInputFile(flags_t *flags, const char* arg) {
     }
     return NO_ERRORS;
 }
-
 
 enum ERRORS ChangeFlagOutputConsole(flags_t *flags, const char* arg) {
     (void) arg;
@@ -196,13 +200,13 @@ enum ERRORS Help(flags_t *flags, const char* arg) {
 
 void PrintHelp() {
     for (size_t i = 0; i < length; i++) {
-        printf("%10s %10s  %-10s \n", commands[i].name, commands[i].long_name, commands[i].description);
+        printf("%10s %10s %-10s \n", commands[i].name, commands[i].long_name, commands[i].description);
     }
 }
 
 enum ERRORS ValidateInput(flags_t *flags) {
 
-#ifndef NO_TEST
+#ifdef TESTING
     if (flags->mode_valid > 1) {
         printf(RED("MUTUAL DESTRUCTION ERROR \n"));
         return INPUT_ERROR;

@@ -80,6 +80,9 @@ int ArgParser(int argc, const char *argv[], flags_t *flags);
  */
 void InitiallizeFlags(flags_t *flags);
 
+/**
+ * @brief The pointer to the function that changes flags
+ */
 typedef enum ERRORS (*changeflag_t) (flags_t *flags, const char *argv);
 
 

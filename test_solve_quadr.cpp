@@ -8,6 +8,7 @@ void PrintMessage(testing_t* test, void *storage) {
     store_data_t* data = (store_data_t*)(storage);
     coefficients_t* coeff = &data->testing_data.coefficients;
     roots_t* roots = &data->roots_returned;
+
     if (test->status == STATE::DEFAULT) {
         Log(INFO, "Test No. %d successful \n", test->test_number + 1);
     }
@@ -67,9 +68,8 @@ bool RunAllTests() {
     tresults.run = &Run;
     tresults.print_message = &PrintMessage;
 
-
     for (size_t i = 0; i < length; i++) {
-        storage.testing_data = tests[(int) i];
+        storage.testing_data = tests[i];
         status += TestRun(&tresults,(int) i, &storage);
     }
 
