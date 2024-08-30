@@ -70,7 +70,7 @@ bool RunAllTests() {
                                  {{            1, -5,  4},{        1,   4,       TWO_ROOTS}},
                                  {{            0,  5,  1},{     -0.2, NAN,        ONE_ROOT}},
                                  {{            1,  0, -4},{       -2,   2,       TWO_ROOTS}},
-                                 {{0.00000000001,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
+                                 {{         1e-9,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
                                  {{          NAN,  0,  0},{      NAN, NAN, NON_VALID_INPUT}}
    };
 
