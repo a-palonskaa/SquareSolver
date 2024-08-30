@@ -1,52 +1,54 @@
 # Quadratic equation solver
 
 ## Overview
-This repository contains the code and documentation for a program that solves a quadratic equation using three given coefficients.
+This is a quadratic equation solver. Give me three coefficients and get result immediately.
 
 <img src="Design/quadr_solver_test.png" width="30%" alt="Logo" /> <img src="Design/test_quadr_wrong_test.png" width="45%" alt="Logo" />
 
 ## Build
-Run `make` to compile program in default mode.
+Run `make` to build program in default mode.
 
-Run `./build/square` to run program.
+`./build/square` to run program.
 
 > [!NOTE]
 > Default mode is `release` mode
 
 ---
 
-Run `make release` to compile program in release mode.
+Run `make release` to build release version of the program.
 
 ### Release mode:
-- Unit test are disabled.
-- Set compiler optimization level to **o2**.
-- Define **NDEBUG** (disables standard-C assertions).
+- Unit tests are disabled.
+- Sets compiler optimization level to **O2**.
+- Defines **NDEBUG** (disables standard-C assertions).
 
 ---
 
-Run `make debug` to compile program in debug mode.
+Run `make debug` to build debug version of the program.
 
 ### Debug mode:
-- Unit test are available.
-- Set compiler optimization level to **o0**.
-- Add compilation flag **-ggdb3** (produces extra debugging information).
+- Unit tests are available.
+- Sets compiler optimization level to **O0**.
+- Adds compilation flag **-ggdb3** (produces extra debugging information).
 
 ---
 
-Run `make clean` to remove objects and dependencies files (clean build folder).
+Run `make clean` to remove obj and dependencies files (clean build folder).
 
 ## Commands
-```-t``` | ```--test```- set testing operation mode
+```-t``` | ```--test```- run tests (available only in debug version)
 
-```-s``` | ```--solve```- set solving equation operation mode
+```-s``` | ```--solve```- solve equation
 
-```-c``` | ```--input_console```- get data from the console
+```-c``` | ```--input_console```- get equation coefficients from stdin
 
-```-i <file name>``` | ```--input_file <file name>```- get data from a file with given name
+```-i <file name>``` | ```--input_file <file name>```- get coefficients from a file with given name
 
-```-f``` | ```--output_console```- print results to the console
+```-f``` | ```--output_console```- print results to stdout
 
-```-o <file name>``` | ```--output_file <file name>```- print results in a file with given name
+```-o <file name>``` | ```--output_file <file name>```- print results to a file with given name
 
-```-h``` | ```--help```- print help message with all commands' description
+```-h``` | ```--help```- print help message with all commands description
 
+> [!NOTE]
+> Default mode is `solve` equation mode, get coeffience from `stdin`, print results to `stdout`.
