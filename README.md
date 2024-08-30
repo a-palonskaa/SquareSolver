@@ -1,7 +1,7 @@
 # Quadratic equation solver
 
 ## Overview
-    This repository contains the code and documentation for a program that solves a quadratic equation using three given coefficients.
+This repository contains the code and documentation for a program that solves a quadratic equation using three given coefficients.
 
 <img src="Design/quadr_solver_test.png" width="120" alt="Logo" />
 
