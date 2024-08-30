@@ -58,7 +58,7 @@ void Run(testing_t *test, void* storage) {
 bool RunAllTests() {
     int status = 0;
 
-    const testing_data_t tests[]={
+    const testing_data_t tests[]={          // a,  b,  c,         x1,  x2,          nRoots
                                  {{            0,  0,  0},{ INFINITY, NAN,       INF_ROOTS}},
                                  {{            1,  0,  0},{        0, NAN,        ONE_ROOT}},
                                  {{            0,  0,  1},{      NAN, NAN,        NO_ROOTS}},
@@ -74,7 +74,7 @@ bool RunAllTests() {
                                  {{          NAN,  0,  0},{      NAN, NAN, NON_VALID_INPUT}}
    };
 
-    size_t length = sizeof(tests) / sizeof(tests[0]);
+    const size_t length = sizeof(tests) / sizeof(tests[0]);
 
     testing_t tresults = {};
 

@@ -151,7 +151,7 @@ enum ERRORS ChangeFlagModeSolve(flags_t *flags, const char* arg) {
     assert(flags != nullptr);
     (void) arg;
 
-    flags->mode = SOLVE;
+    flags->mode = MODE_FLAGS::SOLVE;
     flags->mode_valid++;
     return NO_ERRORS;
 }
@@ -244,7 +244,7 @@ enum ERRORS ValidateInput(flags_t *flags) {
 }
 
 void InitiallizeFlags(flags_t *flags) {
-    flags->mode   =                 SOLVE;
+    flags->mode   =   MODE_FLAGS::  SOLVE;
     flags->output = OUTPUT_FLAGS::CONSOLE;
     flags->input  =  INPUT_FLAGS::CONSOLE;
 

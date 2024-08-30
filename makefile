@@ -17,7 +17,10 @@ INCLUDE_DIR = include
 SOURCE_DIR  = src
 BUILD_DIR   = build
 
-SOURCES = $(wildcard $(SOURCE_DIR)/*.cpp)
+SOURCES = arg_parser.cpp buffer_clean.cpp compare_double.cpp get_data.cpp logger.cpp main.cpp \
+		  show_results.cpp solve_quadr.cpp test_library.cpp test_solve_quadr.cpp
+SOURCES := $(addprefix $(SOURCE_DIR)/, $(SOURCES))
+
 OBJECTS = $(addprefix $(BUILD_DIR)/, $(SOURCES:%.cpp=%.o))
 DEPS 	= $(OBJECTS:.o=.d)
 

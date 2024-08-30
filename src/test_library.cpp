@@ -8,5 +8,6 @@ bool TestRun(testing_t *test, int test_number, void *data) {
     test->test_number = test_number;
     test->run(test, data);
     test->print_message(test, data);
+
     return test->status != STATE::DEFAULT;
 }

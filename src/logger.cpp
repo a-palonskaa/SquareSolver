@@ -43,16 +43,16 @@ void Log(enum LOG_LEVEL status, const char *fmt, ...) {
 const char* LogMessageTypePrint (enum LOG_LEVEL level, bool color) {
     if (color) {
         switch (level) {
-        case ERROR:
-            return RED("[ERROR] ");
-        case WARNING:
-            return YELLOW("[WARNING] ");
-        case INFO:
-            return BLUE("[INFO] ");
-        case DEBUG:
-            return GREEN("[DEBUG] ");
-        default:
-            break;
+            case ERROR:
+                return RED("[ERROR] ");
+            case WARNING:
+                return YELLOW("[WARNING] ");
+            case INFO:
+                return BLUE("[INFO] ");
+            case DEBUG:
+                return GREEN("[DEBUG] ");
+            default:
+                break;
         }
     }
     else {
@@ -77,6 +77,7 @@ void TimePrint(FILE *out) {
 
     time_t mytime = time(NULL);
     struct tm *time = localtime(&mytime);
+
     fprintf(out, "%02d.%02d.%d %02d:%02d:%02d ",
             time->tm_mday, time->tm_mon + 1, time->tm_year + 1900,
             time->tm_hour, time->tm_min,     time->tm_sec);
@@ -91,9 +92,12 @@ void AestheticizeString(const char *src, char *dst, size_t max_len) {
     if (len == 0) {
         return;
     }
+
     size_t j = 0, i = 0;
+
     dst[j++] = '\n';
     dst[j++] = '\t';
+
     for(; i < len && j < max_len - 1; i++) {
         if (src[i] == '\n') {
             dst[j++] = '\n';

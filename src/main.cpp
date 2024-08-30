@@ -23,13 +23,13 @@ int main(int argc, const char *argv[]) {
 
     FILE *file_in  = (flags.input  ==  INPUT_FLAGS::CONSOLE) ? stdin  :  fopen(flags.file_input, "r");
     if (file_in == nullptr) {
-        perror(RED("FAILED TO OPEN INPUT FILE \n"));
+        perror(RED("FAILED TO OPEN INPUT FILE\n"));
         return EXIT_FAILURE;
     }
 
     FILE *file_out = (flags.output == OUTPUT_FLAGS::CONSOLE) ? stdout : fopen(flags.file_output, "w");
     if (file_out == nullptr) {
-        perror(RED("FAILED TO OPEN OUTPUT FILE \n"));
+        perror(RED("FAILED TO OPEN OUTPUT FILE\n"));
         return EXIT_FAILURE;
     }
 
@@ -37,7 +37,7 @@ int main(int argc, const char *argv[]) {
     LoggerSetFile(file_out);
 
 #ifdef TESTING
-    if (flags.mode == TEST) {
+    if (flags.mode == MODE_FLAGS::TEST) {
         int status = RunAllTests();
         fclose(file_out);
         return status;
@@ -51,12 +51,12 @@ int main(int argc, const char *argv[]) {
     if (status == INPUT_ERROR) {
         fprintf(file_out, "INPUT ERROR");
 
-        if (fclose(file_out) == EOF ) {
-            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+        if (fclose(file_out) == EOF) {
+            perror(RED("FAILED TO CLOSE OUTPUT FILE\n"));
         }
 
-        if (fclose(file_in) == EOF ) {
-            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+        if (fclose(file_in) == EOF) {
+            perror(RED("FAILED TO CLOSE INPUT FILE\n"));
         }
 
         return EXIT_FAILURE;
@@ -68,13 +68,13 @@ int main(int argc, const char *argv[]) {
 
     ShowResults(nroots, x1, x2, file_out);
 
-    if (fclose(file_out) == EOF ) {
-            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
-        }
+    if (fclose(file_out) == EOF) {
+        perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
+    }
 
-    if (fclose(file_in) == EOF ) {
-            perror(RED("FAILED TO CLOSE OUTPUT FILE \n"));
-        }
+    if (fclose(file_in) == EOF) {
+        perror(RED("FAILED TO CLOSE INPUT FILE \n"));
+    }
 
     return EXIT_SUCCESS;
 }

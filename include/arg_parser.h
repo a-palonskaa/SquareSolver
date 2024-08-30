@@ -15,7 +15,7 @@
 /**
  * @brief enum for the status of the mode
  */
-enum FLAGS {
+enum class MODE_FLAGS {
     SOLVE = 0,   ///< mode of solving quardatic equation
     TEST  = 1    ///< mode of testing the algorithm of solving quadratic equation
 };
@@ -54,7 +54,7 @@ enum class INPUT_FLAGS {
  * Member 'file_output' is a pointer to the string with output file name
  */
 typedef struct {
-    enum FLAGS        mode;
+    enum MODE_FLAGS   mode;
     enum OUTPUT_FLAGS output;
     enum INPUT_FLAGS  input;
 

@@ -3,16 +3,16 @@
 int BufferClean(FILE* file) {
     assert(file != nullptr);
 
-    int a       = 0;
-    int symbols = 0;
+    int symbol     = 0;
+    int symbol_cnt = 0;
 
-    while ((a = getc(file)) != EOF && a != '\n') {
-        if (!isspace(a)) {
-            symbols++;
+    while ((symbol = getc(file)) != EOF && symbol != '\n') {
+        if (!isspace(symbol)) {
+            symbol_cnt++;
         }
     }
 
-    return a == EOF     ? END_OF_FILE :
-           symbols != 0 ? SYMBOLS_INPUT_ERROR :
-                          NO_ERRORS;
+    return symbol == EOF   ? END_OF_FILE :
+           symbol_cnt != 0 ? SYMBOLS_INPUT_ERROR :
+                             NO_ERRORS;
 }
