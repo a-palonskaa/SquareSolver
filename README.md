@@ -3,7 +3,7 @@
 ## Overview
 This repository contains the code and documentation for a program that solves a quadratic equation using three given coefficients.
 
-<img src="Design/quadr_solver_test.png" width="30%" alt="Logo" /> <img src="Design/test_quadr_wrong_test.png" width="30%" alt="Logo" />
+<img src="Design/quadr_solver_test.png" width="30%" alt="Logo" /> <img src="Design/test_quadr_wrong_test.png" width="45%" alt="Logo" />
 
 ## Build
 Run `make` to compile program in default mode.
