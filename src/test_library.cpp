@@ -6,7 +6,7 @@ bool TestRun(testing_t *test, int test_number, void *data) {
 
     test->status = STATE::DEFAULT;
     test->test_number = test_number;
-    test->run(test, data);
+    test->test_execute(test, data);
     test->print_message(test, data);
 
     return test->status != STATE::DEFAULT;

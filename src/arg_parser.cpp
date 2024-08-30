@@ -105,13 +105,13 @@ int ArgParser(int argc, const char *argv[], flags_t *flags) {
     if (argc > 0) {
         while (--argc > 0) {
             argv++;
-            int flag = 0;
+            int has_arg_validate = 0;
 
             for (size_t i = 0; i < length; i++) {
                 if(!(strcmp(*argv, commands[i].name) &&
                     strcmp(*argv, commands[i].long_name))) {
 
-                    flag++;
+                    has_arg_validate++;
 
                     if (commands[i].has_arg && argc <= 1) {
                         PrintHelp();
@@ -134,7 +134,7 @@ int ArgParser(int argc, const char *argv[], flags_t *flags) {
                     }
                 }
             }
-            if (!flag) {
+            if (!has_arg_validate) {
                 printf(RED("UNKNOWN COMMAND \n"));
                 return INPUT_ERROR;
             }

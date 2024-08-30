@@ -6,8 +6,8 @@ int GetData(coefficients_t *quadr_coeff, FILE* file) {
 
     const int COEFFS_CNT = 3;
 
-    int flag  = 0;
-    int buffer = 0;
+    int scanf_results       = 0;
+    int bufferclean_results = 0;
 
     do {
         if (file == stdin) {
@@ -15,16 +15,16 @@ int GetData(coefficients_t *quadr_coeff, FILE* file) {
         }
 
         static_assert(COEFFS_CNT == 3);
-        flag = fscanf(file, "%lg %lg %lg", &(quadr_coeff->a), &(quadr_coeff->b) , &(quadr_coeff->c));
+        scanf_results = fscanf(file, "%lg %lg %lg", &(quadr_coeff->a), &(quadr_coeff->b) , &(quadr_coeff->c));
 
-        if (flag == EOF) {
+        if (scanf_results == EOF) {
             return INPUT_ERROR;
         }
 
-        if ((buffer = BufferClean(file)) == END_OF_FILE) {
+        if ((bufferclean_results = BufferClean(file)) == END_OF_FILE) {
             return INPUT_ERROR;
         }
-    } while (flag != COEFFS_CNT || buffer == SYMBOLS_INPUT_ERROR);
+    } while (scanf_results != COEFFS_CNT || bufferclean_results == SYMBOLS_INPUT_ERROR);
 
     return NO_INPUT_ERRORS;
 }

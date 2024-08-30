@@ -5,16 +5,16 @@
 * @param[out] test Pointer to the structure type of testing_t
 * @param[out] storage Pointer to the untyped variable
 */
-static void PrintMessage(testing_t* test, void *storage);
+static void PrintTestsReport(testing_t* test, void *storage);
 
 /**
 * @brief Rewrite roots in ascending order
 * @param[out] test Pointer to the structure type of testing_t
 * @param[out] storage Pointer to the untyped variable
 */
-static void Run(testing_t *test, void *storage);
+static void TestExecute(testing_t *test, void *storage);
 
-void PrintMessage(testing_t* test, void *storage) {
+void PrintTestsReport(testing_t* test, void *storage) {
     assert(test != nullptr);
     assert(storage != nullptr);
 
@@ -40,7 +40,7 @@ void PrintMessage(testing_t* test, void *storage) {
     }
 }
 
-void Run(testing_t *test, void* storage) {
+void TestExecute(testing_t *test, void* storage) {
     assert(test != nullptr);
     assert(storage != nullptr);
 
@@ -79,8 +79,8 @@ bool RunAllTests() {
     testing_t tresults = {};
 
     store_data_t storage = {};
-    tresults.run = &Run;
-    tresults.print_message = &PrintMessage;
+    tresults.test_execute = &TestExecute;
+    tresults.print_message = &PrintTestsReport;
 
     for (size_t i = 0; i < length; i++) {
         storage.testing_data = tests[i];

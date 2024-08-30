@@ -118,7 +118,7 @@ enum class STATE {
 typedef struct Testing {
     enum STATE status;
     int test_number;
-    test_t run;
+    test_t test_execute;
     printer_t print_message;
 } testing_t;
 
