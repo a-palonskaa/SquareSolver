@@ -28,7 +28,7 @@ CFLAGS += -I$(INCLUDE_DIR) #-I добавляет пути по которым �
 
 EXECUTABLE = $(BUILD_DIR)/square
 
-.PHONY: all bedug release
+.PHONY: all debug release
 
 all: release
 

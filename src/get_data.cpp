@@ -14,7 +14,7 @@ int GetData(coefficients_t *quadr_coeff, FILE* file) {
             fprintf(stdout, "Enter a, b, c \n");
         }
 
-        static_assert(COEFFS_CNT == 3);
+        static_assert(COEFFS_CNT == 3, "WRONG AMOUNT OF COEFFICIENTS \n");
         scanf_results = fscanf(file, "%lg %lg %lg", &(quadr_coeff->a), &(quadr_coeff->b) , &(quadr_coeff->c));
 
         if (scanf_results == EOF) {

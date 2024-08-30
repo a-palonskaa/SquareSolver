@@ -161,7 +161,7 @@ enum ERRORS ChangeFlagModeTest(flags_t *flags, const char* arg) {
     assert(flags != nullptr);
     (void) arg;
 
-    flags->mode = TEST;
+    flags->mode = MODE_FLAGS::TEST;
     flags->mode_valid++;
     return NO_ERRORS;
 }
