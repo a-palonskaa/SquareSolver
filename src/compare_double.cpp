@@ -18,7 +18,7 @@ int IsFinite(const double a) {
 }
 
 int IsNull(const double num) {
-    return IsEqual(num, 0);
+    return IsEqual(num, 0.0);
 }
 
 int IsEqual(const double a, const double b) {

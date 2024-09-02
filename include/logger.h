@@ -13,7 +13,7 @@
 /**
  * @brief enum for the logging level
  */
-enum LOG_LEVEL {
+enum LogLevel {
     DEBUG   = 0,    ///< debug level
     INFO    = 1,    ///< informational level
     WARNING = 2,    ///< warning level
@@ -29,7 +29,7 @@ enum LOG_LEVEL {
  */
 typedef struct {
     FILE* file_out;
-    enum LOG_LEVEL min_level;
+    enum LogLevel min_level;
 } logger_t;
 
 /**
@@ -37,7 +37,7 @@ typedef struct {
  * @param[in] status Logging status
  * @param[in]  ...   Arguments for format specification
  */
-void Log(enum LOG_LEVEL status, const char *fmt, ...);
+void Log(enum LogLevel status, const char *fmt, ...);
 
 /**
  * @brief  Set output file
@@ -49,14 +49,14 @@ void LoggerSetFile(FILE* out);
  * @brief  Set output file
  * @param[in] level Logging level
  */
-void LoggerSetLevel(enum LOG_LEVEL level);
+void LoggerSetLevel(enum LogLevel level);
 
 /**
  * @brief  Identify the message type
  * @param[in] level Logging level
  * @param[in] color Bool to define where or not dye status
  */
-const char* LogMessageTypePrint(enum LOG_LEVEL level, bool color);
+const char* LogMessageTypePrint(enum LogLevel level, bool color);
 
 /**
 * @brief Print the time of the message

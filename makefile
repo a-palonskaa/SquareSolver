@@ -39,15 +39,15 @@ release: CFLAGS += -O2 -DNDEBUG
 release: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $^ -o $@
+	@$(CC) $(LDFLAGS) $^ -o $@
 
 $(OBJECTS): $(BUILD_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(DEPS): $(BUILD_DIR)/%.d: %.cpp
 	@mkdir -p $(@D)
-	$(CC) -E $(CFLAGS) $< -MM -MT $(@:.d=.o) > $@
+	@$(CC) -E $(CFLAGS) $< -MM -MT $(@:.d=.o) > $@
 
 .PHONY: clean #псевдоцель(не привязана к файлуб таргет который не файл)
 clean:

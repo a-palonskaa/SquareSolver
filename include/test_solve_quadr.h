@@ -31,7 +31,7 @@
 typedef struct {
     double x1;
     double x2;
-    enum NUM_ROOTS nroots;
+    enum NumRoots n_roots;
 } roots_t;
 
 /** @testing_t_data

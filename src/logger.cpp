@@ -3,7 +3,7 @@
 static logger_t* GetLogger() {
     static logger_t logger = {};
     return &logger;
-}
+} // NOTE - Леш эт че за хуйня
 
 void LoggerSetFile(FILE* out) {
     assert(out != nullptr);
@@ -11,11 +11,11 @@ void LoggerSetFile(FILE* out) {
     GetLogger()->file_out = out;
 }
 
-void LoggerSetLevel(enum LOG_LEVEL level) {
+void LoggerSetLevel(enum LogLevel level) {
     GetLogger()->min_level = level;
 }
 
-void Log(enum LOG_LEVEL status, const char *fmt, ...) {
+void Log(enum LogLevel status, const char *fmt, ...) {
     assert(fmt != nullptr);
 
     if (GetLogger()->min_level > status) {
@@ -40,37 +40,32 @@ void Log(enum LOG_LEVEL status, const char *fmt, ...) {
     va_end (args);
 }
 
-const char* LogMessageTypePrint (enum LOG_LEVEL level, bool color) {
-    if (color) {
-        switch (level) {
-            case ERROR:
-                return RED("[ERROR] ");
-            case WARNING:
-                return YELLOW("[WARNING] ");
-            case INFO:
-                return BLUE("[INFO] ");
-            case DEBUG:
-                return GREEN("[DEBUG] ");
-            default:
-                break;
-        }
+#define ADD_COLOR_(COLOR , str)           \
+    do {                                  \
+        if (color) {                      \
+            return COLOR str COLOR_RESET; \
+        }                                 \
+        return str;                       \
+    } while(0)
+
+const char* LogMessageTypePrint(enum LogLevel level, bool color) {
+
+    switch (level) {
+        case ERROR:
+            ADD_COLOR_(COLOR_RED, "[ERROR] ");
+        case WARNING:
+            ADD_COLOR_(COLOR_YELLOW, "[WARNING] ");
+        case INFO:
+            ADD_COLOR_(COLOR_BLUE, "[INFO] ");
+        case DEBUG:
+            ADD_COLOR_(COLOR_GREEN, "[DEBUG] ");
+        default:
+            ADD_COLOR_(COLOR_RED, "!ERROR! ");
+            break;
     }
-    else {
-        switch (level) {
-            case ERROR:
-                return "[ERROR] ";
-            case WARNING:
-                return "[WARNING] ";
-            case INFO:
-                return "[INFO] ";
-            case DEBUG:
-                return "[DEBUG] ";
-            default:
-                break;
-        }
-    }
-    return "!ERROR!";
 }
+
+#undef ADD_COLOR_
 
 void TimePrint(FILE *out) {
     assert(out != nullptr);

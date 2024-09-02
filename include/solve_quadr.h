@@ -19,17 +19,17 @@
  * @param[in] c Free member coefficient
  * @param[out] x1 The smallest root(or INFINITY/ NAN)
  * @param[out] x2 The greatest root(or INFINITY/ NAN)
- * @return number of roots type of NUM_ROOTS
+ * @return number of roots type of NumRoots
  */
-enum NUM_ROOTS QuadraticEquation(double a, double b, double c, double *x1, double *x2);
+enum NumRoots QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 
 /**
  * @brief Solve a linear equation, write the root of linear equation, and return number of roots
  * @param[in] b Coefficient at the 1st degree
  * @param[in] c Free member coefficient
  * @param[out] x Root of the equation(NAN if there are no roots)
- * @return number of roots type of NUM_ROOTS
+ * @return number of roots type of NumRoots
  */
-enum NUM_ROOTS LinearEquation(double b, double c, double *x);
+enum NumRoots LinearEquation(double b, double c, double *x);
 
 #endif /* SOLVE_QUADR_H */

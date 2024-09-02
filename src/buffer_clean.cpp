@@ -6,7 +6,7 @@ int BufferClean(FILE* file) {
     int symbol     = 0;
     int symbol_cnt = 0;
 
-    while ((symbol = getc(file)) != EOF && symbol != '\n') {
+    while ((symbol = fgetc(file)) != EOF && symbol != '\n') {
         if (!isspace(symbol)) {
             symbol_cnt++;
         }

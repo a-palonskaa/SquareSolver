@@ -12,7 +12,7 @@ const int MAXLINE = 500;
 /**
  * @brief enum for errors type
  */
-enum ERRORS {
+enum Errors {
     NO_ERRORS           = 0,   ///< no errors
     NO_INPUT_ERRORS     = 1,   ///< no input errors
     INPUT_ERROR         = 2,   ///< input error
@@ -24,7 +24,7 @@ enum ERRORS {
 /**
  * @brief enum for number of roots definition
  */
-enum NUM_ROOTS {
+enum NumRoots {
     INF_ROOTS       = -1,   ///< infinite number of roots
     NO_ROOTS        =  0,   ///< no roots
     ONE_ROOT        =  1,   ///< one root

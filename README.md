@@ -40,13 +40,13 @@ Run `make clean` to remove obj and dependencies files (clean build folder).
 
 ```-s``` | ```--solve```- solve equation
 
-```-c``` | ```--input_console```- get equation coefficients from stdin
+```-c``` | ```--input-console```- get equation coefficients from stdin
 
-```-i <file name>``` | ```--input_file <file name>```- get coefficients from a file with given name
+```-i <file name>``` | ```--input-file <file name>```- get coefficients from a file with given name
 
-```-f``` | ```--output_console```- print results to stdout
+```-f``` | ```--output-console```- print results to stdout
 
-```-o <file name>``` | ```--output_file <file name>```- print results to a file with given name
+```-o <file name>``` | ```--output-file <file name>```- print results to a file with given name
 
 ```-h``` | ```--help```- print help message with all commands description
 

@@ -15,7 +15,7 @@
 /**
  * @brief enum for the status of the mode
  */
-enum class MODE_FLAGS {
+enum class ModeFlags {
     SOLVE = 0,   ///< mode of solving quardatic equation
     TEST  = 1    ///< mode of testing the algorithm of solving quadratic equation
 };
@@ -23,7 +23,7 @@ enum class MODE_FLAGS {
 /**
  * @brief enum for the status of the output
  */
-enum class OUTPUT_FLAGS {
+enum class OutputFlags {
     CONSOLE = 0,  ///< mode of printing results in the console
     FILE    = 1   ///< mode of printing results in the file
 };
@@ -31,7 +31,7 @@ enum class OUTPUT_FLAGS {
 /**
  * @brief enum for the status of the input
  */
-enum class INPUT_FLAGS {
+enum class InputFlag {
     CONSOLE = 0,  ///< mode of reading data from the console
     FILE    = 1   ///< mode of reading data from the file
 };
@@ -54,9 +54,9 @@ enum class INPUT_FLAGS {
  * Member 'file_output' is a pointer to the string with output file name
  */
 typedef struct {
-    enum MODE_FLAGS   mode;
-    enum OUTPUT_FLAGS output;
-    enum INPUT_FLAGS  input;
+    enum ModeFlags   mode;
+    enum OutputFlags output;
+    enum InputFlag  input;
 
     int mode_valid;
     int input_valid;
@@ -86,7 +86,7 @@ void InitiallizeFlags(flags_t *flags);
 /**
 * @brief The pointer to the function that changes flags
 */
-typedef enum ERRORS (*changeflag_t) (flags_t *flags, const char *argv);
+typedef enum Errors (*changeflag_t) (flags_t *flags, const char *argv);
 
 
 /** @struct option_t

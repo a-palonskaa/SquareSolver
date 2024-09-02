@@ -22,7 +22,7 @@
 #define ASSERT_TRUE(test, expr)             \
     do {                                    \
         if (!(expr)) {                      \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
             return;                         \
         }                                   \
     } while (0)
@@ -30,7 +30,7 @@
 #define ASSERT_FALSE(test, expr)            \
     do {                                    \
         if (expr) {                         \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
             return;                         \
         }                                   \
     } while (0)
@@ -38,7 +38,7 @@
 #define ASSERT_EQUAL(test, state, want)     \
     do {                                    \
         if ((state) != (want)) {            \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
             return;                         \
         }                                   \
     } while (0)
@@ -46,7 +46,7 @@
 #define ASSERT_EQUAL_DOUBLE(test, a, b)     \
     do {                                    \
         if (!IsEqual((a), (b))) {           \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
             return;                         \
         }                                   \
     } while (0)
@@ -56,28 +56,28 @@
 #define CHECK_TRUE(test, expr)              \
     do {                                    \
         if (!(expr)) {                      \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
         }                                   \
     } while (0)
 
 #define CHECK_FALSE(test, expr)             \
     do {                                    \
         if (expr) {                         \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
         }                                   \
     } while (0)
 
 #define CHECK_EQUAL(test, state, want)      \
     do {                                    \
         if ((state) != (want)) {            \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
         }                                   \
     } while (0)
 
 #define CHECK_EQUAL_DOUBLE(test, a, b)      \
     do {                                    \
         if (!IsEqual((a), (b))) {           \
-            test->status = STATE::ERROR;    \
+            test->status = State::ERROR;    \
         }                                   \
     } while (0)
 
@@ -96,7 +96,7 @@ typedef void (*test_t) (struct Testing *test, void *storage);
 /**
  * @brief enum for define the STATE while checking for errors
  */
-enum class STATE {
+enum class State {
     DEFAULT = true,  ///< no errors(default state)
     ERROR  = false   ///< error
 };
@@ -116,7 +116,7 @@ enum class STATE {
  * Member 'print_message' is a pointer to the function that does not return anything and takes pointer to the non-defined-type and poiner to the structure type of Testing
  */
 typedef struct Testing {
-    enum STATE status;
+    enum State status;
     int test_number;
     test_t test_execute;
     printer_t print_message;
